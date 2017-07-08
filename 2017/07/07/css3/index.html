@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css3 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2017年7月7日一.私有前缀兼容圆角：—webkit-border-radius :50% //谷歌 苹果 —moz-border-radius：50% //火狐 —o-border-radius：50% //欧朋 —ms-border-radius:50% // ie 渐进增强先考虑兼容问题 然后使用最新的属性来代替 优雅降级开始就构建完成的功能，然后再针对低版本浏览器进行兼容 手册 []">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css3">
+<meta property="og:url" content="http://yoursite.com/2017/07/07/css3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2017年7月7日一.私有前缀兼容圆角：—webkit-border-radius :50% //谷歌 苹果 —moz-border-radius：50% //火狐 —o-border-radius：50% //欧朋 —ms-border-radius:50% // ie 渐进增强先考虑兼容问题 然后使用最新的属性来代替 优雅降级开始就构建完成的功能，然后再针对低版本浏览器进行兼容 手册 []">
+<meta property="og:updated_time" content="2017-07-07T14:59:01.479Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css3">
+<meta name="twitter:description" content="2017年7月7日一.私有前缀兼容圆角：—webkit-border-radius :50% //谷歌 苹果 —moz-border-radius：50% //火狐 —o-border-radius：50% //欧朋 —ms-border-radius:50% // ie 渐进增强先考虑兼容问题 然后使用最新的属性来代替 优雅降级开始就构建完成的功能，然后再针对低版本浏览器进行兼容 手册 []">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-css3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/07/css3/" class="article-date">
+  <time datetime="2017-07-07T12:41:17.000Z" itemprop="datePublished">2017-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2017年7月7日"><a href="#2017年7月7日" class="headerlink" title="2017年7月7日"></a>2017年7月7日</h1><h2 id="一-私有前缀"><a href="#一-私有前缀" class="headerlink" title="一.私有前缀"></a>一.私有前缀</h2><h3 id="兼容圆角："><a href="#兼容圆角：" class="headerlink" title="兼容圆角："></a>兼容圆角：</h3><p>—webkit-border-radius :50% //谷歌 苹果</p>
+<p>—moz-border-radius：50% //火狐</p>
+<p>—o-border-radius：50% //欧朋</p>
+<p>—ms-border-radius:50% // ie</p>
+<h3 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h3><p>先考虑兼容问题 然后使用最新的属性来代替</p>
+<h3 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h3><p>开始就构建完成的功能，然后再针对低版本浏览器进行兼容</p>
+<h3 id="手册"><a href="#手册" class="headerlink" title="手册"></a>手册</h3><ol>
+<li>[]   表示全部可选项</li>
+<li>||   表示或者</li>
+<li>|    表示多选一</li>
+<li>？   表示0个或者1个   0 || 1</li>
+<li><ul>
+<li>表示0个或者多个   &gt;0</li>
+</ul>
+</li>
+<li>{}   表示范围</li>
+</ol>
+<h2 id="选择器（3种）"><a href="#选择器（3种）" class="headerlink" title="选择器（3种）"></a>选择器（3种）</h2><h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><ol>
+<li>E[ attr ]  表示存在attr属性即可</li>
+<li>E[ attr=var ]    表示属性值完全等于val</li>
+<li>E[ attr*=val ]   表示的属性值里面包含val字符并且在 “任意” 位置</li>
+<li>E[ attr^=val ]   表示的属性值里面包含了val字符并且在 “开始” 位置</li>
+<li>E[ attr$=val ]   表示的属性值里面包含了val字符并且在 “结束” 位置 </li>
+<li>E[ attr ][ href=val ] </li>
+</ol>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><p>css3之前的伪类选择器 ：link，：active，：visited， ：hover</p>
+<p>css3 新增选择器</p>
+<p>序选择器/结构选择器：</p>
+<p>步骤：</p>
+<ol>
+<li>找到li元素</li>
+<li>通过li找到父元素</li>
+<li>通过父元素找到所有的子元素 child</li>
+<li>再去找第几个子元素 first last nth</li>
+<li>确定是不是li 如果是就选中 如果不是那么就是无效选择器</li>
+</ol>
+<p>1/ li:nth-child(2)  选择到第二个li</p>
+<p>2/ li:nth-child(2n)  n的取值范围：正整数 0 —— 无穷大 选择到第2列的所有li </p>
+<p>3/ li:nth-child(2n-1) n这个变量必须要在公式前面 选择到第一列的所有的li</p>
+<p>4/ li:nth-last-child(2) 选择倒数第二个li</p>
+<p>5/ li：nth-last-child(-n+2) 选择后面二个li </p>
+<h3 id="单个选择器-empty"><a href="#单个选择器-empty" class="headerlink" title="单个选择器 empty"></a>单个选择器 empty</h3><p>span：empty {display：none}</p>
+<h3 id="锚点选择器-target"><a href="#锚点选择器-target" class="headerlink" title="锚点选择器 target"></a>锚点选择器 target</h3><p>h1：targer {color：red} 当前锚点对应的元素会被选中</p>
+<h3 id="排除选择器-not"><a href="#排除选择器-not" class="headerlink" title="排除选择器 not"></a>排除选择器 not</h3><p>.class:not(#id) 排除ID为 id的这个元素</p>
+<h3 id="伪元素选择器-伪类："><a href="#伪元素选择器-伪类：" class="headerlink" title="伪元素选择器:: (伪类：)"></a>伪元素选择器:: (伪类：)</h3><ol>
+<li>::before $$ ::after **</li>
+<li>::first-letter 选中li当中的第一个字或者字母 只有块级元素才能使用<br>li::first-letter {font-size:20px; line-height:30px}</li>
+<li>first-line 文本第一个行</li>
+<li>p:nth-child（2）：：selection{background：pink} 内容被选中后的变化</li>
+</ol>
+<h2 id="伪类和伪元素的区别"><a href="#伪类和伪元素的区别" class="headerlink" title="伪类和伪元素的区别"></a>伪类和伪元素的区别</h2><p>伪类的效果可以通过添加一个实际的类来达到，而伪元素的效果则需要通过添加一个实际的元素才能达到，这也是为什么称伪类: 和 伪元素:: 的原因</p>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><ol>
+<li>opacity 子元素会继承父盒子的透明度 里面的文字也透明</li>
+<li>transparent 设置完全透明的颜色 子元素不会被继承</li>
+<li>rgba 透明度也不会被继承</li>
+</ol>
+<h2 id="文本阴影"><a href="#文本阴影" class="headerlink" title="文本阴影"></a>文本阴影</h2><p>text-shadow （多个阴影用逗号分隔）<br>第一个参数:x轴方向的偏移<br>第二个参数:y轴方向的偏移<br>第三个参数:阴影的模糊度 大于0<br>第四个参数:阴影的颜色</p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>box-sizing：content-box; 从内容开始计算 （标准模式盒模型）<br>box-sizing: border-box;  从边框开始计算  (怪异模式盒模型)</p>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><p>圆：<br>border-radius：50%</p>
+<p>盒子阴影：</p>
+<ol>
+<li>外阴影 box.shadow:10px 10px 10px #ccc</li>
+<li>内阴影 box.shadow:10px 10px 10px #ccc inset;</li>
+<li>阴影延伸 box.shadow :0 0 10px 10px #ccc inset ;(第4个参数是阴影的延伸)</li>
+</ol>
+<p>边框图片： </p>
+<ol>
+<li>资源地址：border-image-source：url(“image/xxx”)</li>
+<li>裁剪的尺寸:border-image-slice:27 27 27 27 裁剪的尺寸</li>
+<li>边框的宽度：border-image-width：10px 决定图片显示的大小 图标会自适应显示在范围内</li>
+<li>平铺的方式（3种）border-image-repeat：round/repeat/stretch</li>
+</ol>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="背景-尺寸"><a href="#背景-尺寸" class="headerlink" title="背景-尺寸"></a>背景-尺寸</h3><ol>
+<li>让背景图和外容器一样大小</li>
+</ol>
+<p>background-size：600px 400px；</p>
+<ol>
+<li>让背景图自适应完全显示在盒子里 等比缩放</li>
+</ol>
+<p>background-size：100% auto;</p>
+<ol>
+<li>让背景图片，完全显示在盒子里面</li>
+</ol>
+<p>background-size：contain;</p>
+<ol>
+<li>让背景图片完全铺满整个盒子</li>
+</ol>
+<p>background-size：cover;</p>
+<h3 id="背景-原点"><a href="#背景-原点" class="headerlink" title="背景-原点"></a>背景-原点</h3><p>1.默认的背景原点是</p>
+<p>background-origin：padding-box；</p>
+<p>2.让背景图的原点从内容开始铺</p>
+<p>background-origin：content-box；</p>
+<p>3.让背景图的原点从边框开始铺</p>
+<p>background-origin：border-box</p>
+<h3 id="背景-裁剪"><a href="#背景-裁剪" class="headerlink" title="背景-裁剪"></a>背景-裁剪</h3><p>1.默认的裁剪方式 边框以外的都被裁剪掉</p>
+<p>background-clip：border-box</p>
+<p>2.边距以外的都被裁剪掉</p>
+<p>background-clip:padding-box</p>
+<p>3.内容以外的都被裁剪掉</p>
+<p>background-clip：content-box</p>
+<h3 id="背景-多背景"><a href="#背景-多背景" class="headerlink" title="背景-多背景"></a>背景-多背景</h3><p>background：</p>
+<p>url（”images/xx”）left top;</p>
+<p>url（”images/xx”）right top;</p>
+<p>url（”images/xx”）right buttom;</p>
+<p>url（”images/xx”）left buttom;</p>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><h3 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h3><p>linear-gradient(45deg,yellow.blue)</p>
+<p>参数：渐变的方向，起始的颜色，结束的颜色</p>
+<h3 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h3><p>radial-gradient(150px ,at center,blue,yellow)</p>
+<p>参数：放射半径，中心原点，起始颜色，结束颜色</p>
+<h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><p>transition 元素属性发生改变时触发平滑过渡 （补间动画）</p>
+<p>组合写法：transition：all 4s ease 1s </p>
+<p>拆分：</p>
+<p>1.需要过渡的属性 transition-property：all（border-color，width，hegith……）</p>
+<p>2.过渡的时长  transition-duration：4s；</p>
+<p>3.动画的速度 transition-timing-function：ease（先快后慢）/ linear(匀速的)……</p>
+<p>4.过渡的延时 transition-delay：1s；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/07/css3/" data-id="cj4vaywy70001jwujw20rpets" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/08/angular/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          angular
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/29/模块化实现第三方内容/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">模块化实现第三方内容</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/08/angular/">angular</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/07/css3/">css3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/29/模块化实现第三方内容/">模块化实现第三方内容</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

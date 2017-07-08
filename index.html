@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-angular" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/08/angular/" class="article-date">
+  <time datetime="2017-07-08T08:06:46.000Z" itemprop="datePublished">2017-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/08/angular/">angular</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2017年7月8日"><a href="#2017年7月8日" class="headerlink" title="2017年7月8日"></a>2017年7月8日</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><code>每一个控制器都拥有$scope, 这个$scope可以看做是一个作用域，当前控制器中所有绑定的数据内容都会来$scope中进行查找</code></p>
+<p>在模块控制的范围内，有一个全局作用域，$rootScope</p>
+<p>控制器之间又可以进行嵌套，嵌套之后，作用域之间就形成了继承关系，其原理就是原型继承</p>
+<p>继承关系指的就是：绑定数据在查找的时候，会在当前控制器中进行查找，如果找到了就直接使用，如果找不到就会去外层控制器的作用域中进行查找，直到找到$rootScope为止</p>
+<p>$rootScope可以被所有的控制器操作，所有很容易出现全局污染的情况，所有应该避免进行类似的操作</p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h3><p>angular.module(“模块名称”,[“依赖项”]);</p>
+<h3 id="获取模块"><a href="#获取模块" class="headerlink" title="获取模块"></a>获取模块</h3><p>angular.module(“模块名称”);</p>
+<h3 id="模块注意事项"><a href="#模块注意事项" class="headerlink" title="模块注意事项"></a>模块注意事项</h3><p>angular推荐一个页面中只使用一个ng-app指定一个模块</p>
+<p>如果存在多个ng-app指令，angular只会自动启动第一个模块！</p>
+<p>如果要启动多个模块，需要手动启动<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.bootstrap(模块要控制的dom元素,[<span class="string">"模块名称"</span>]);</div></pre></td></tr></table></figure></p>
+<p>** 模块不能嵌套</p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>一种架构模式，将应用程序代码根据功能划分为三部分</p>
+<p><code>Model：数据内容，负责所有的数据操作</code></p>
+<p><code>View：视图内容，负责所有的数据展示工作以及用户交互操作</code></p>
+<p><code>Controller：控制器内容，负责处理所有的业务逻辑（在视图和数据之间搭建一个桥梁）</code></p>
+<h3 id="MVP-MVVM-MVW-MV"><a href="#MVP-MVVM-MVW-MV" class="headerlink" title="MVP MVVM MVW MV*"></a>MVP MVVM MVW MV*</h3><h2 id="jqlite"><a href="#jqlite" class="headerlink" title="jqlite"></a>jqlite</h2><p><code>jqlite是angular内置的类似于jQuery的东西,但是他不具备jQuery大部分的功能，尤其是没有提供选择器</code></p>
+<p>angular.element能够获取到jqlite的对象，也可以引入jQuery之后，用来获取jQuery的$;</p>
+<p>angular不推荐进行dom操作，也不推荐使用别人家的东西</p>
+<h2 id="watch"><a href="#watch" class="headerlink" title="$watch"></a>$watch</h2><p>$watch可以用来监视数据的变化</p>
+<p>只能监视$scope中的内容！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.$watch(<span class="string">"数据名称"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">newValue,oldValue</span>)</span>&#123;</div><div class="line"> <span class="comment">//这个函数会在数据发生变化的时候被调用</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>如果要监视一个对象，那么需要传入第三个参数，deepwatch，是一个布尔值，设置为true的时候，会在对象内部的属性发生变化的时候也监视到变化，但是他默认值是false！！</p>
+<h2 id="controller的创建方式"><a href="#controller的创建方式" class="headerlink" title="controller的创建方式"></a>controller的创建方式</h2><ol>
+<li>推断式<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">模块对象.controller(<span class="string">"控制器名称"</span>，<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">    <span class="comment">//$scope这个形参名是定死的，不能随意更改，更改之后会找不到该内容，报错 报错！</span></div><div class="line"></div><div class="line">    <span class="comment">//这种写法不推荐，因为在代码压缩的时候，$scope会被改变名称！</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.依赖注入式<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">模块对象.controller(<span class="string">"控制器名称"</span>,[<span class="string">"$scope"</span>,<span class="string">"$log"</span>...,<span class="function"><span class="keyword">function</span>(<span class="params">scope.log...</span>)</span>&#123;&#125;]);</div></pre></td></tr></table></figure></p>
+<p>3.面向对象的方式<br>（可以将数据绑定到控制器的实例上）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">模块对象.controller(<span class="string">"控制器名称"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//this指向的就是控制器的一个实例，</span></div><div class="line">  <span class="comment">//下面的操作就是将数据绑定到了实例对象上</span></div><div class="line">  <span class="keyword">this</span>.数据 = <span class="string">"neirong"</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>在视图中需要通过如下的方式进行使用<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 这里的item其实就是控制器实例--&gt;</span></div><div class="line"><span class="comment">&lt;!-- 这句话就相当于执行了 var item = new 控制器（）--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span> = <span class="string">"控制器名称 as item"</span>&gt;</span></div><div class="line">&#123;&#123;item.数据&#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>DI dependence injection</p>
+<p>将需要使用的内容注入到指定的位置</p>
+<p>优势： </p>
+<pre><code>1.参数的顺序不需要指定了，参数也不需要将所有的内容都传递进来了
+2.参数名称也不需要定死了
+</code></pre><p>angular当中的依赖注入的实现<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ctrl</span>(<span class="params"></span>)</span></div></pre></td></tr></table></figure></p>
+<h3 id="推断式创建控制器的原理"><a href="#推断式创建控制器的原理" class="headerlink" title="推断式创建控制器的原理"></a>推断式创建控制器的原理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ctrl</span>(<span class="params">name,params</span>)</span>&#123;</div><div class="line">    <span class="comment">//系统中包含的所有的功能</span></div><div class="line">    <span class="keyword">var</span> features = &#123;</div><div class="line">        <span class="string">"$scpoe"</span>:&#123;</div><div class="line">            <span class="attr">name</span>:<span class="string">"张三"</span></div><div class="line">        &#125;,</div><div class="line">        <span class="string">"$log"</span>:&#123;</div><div class="line">            <span class="attr">log</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">            <span class="attr">warn</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="string">"$rootScope"</span>:&#123;&#125;,</div><div class="line">        <span class="string">"$window"</span>:<span class="built_in">window</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//获取到回调函数</span></div><div class="line">    <span class="keyword">var</span> callback = params[params.length<span class="number">-1</span>];</div><div class="line">    <span class="comment">//在调用这个函数的时候，需要给用户传递的参数是根据用户告诉我们的内容，传递</span></div><div class="line">    </div><div class="line">    <span class="comment">//声明一个数据，准备存放用户需要的所有的内容</span></div><div class="line">    <span class="keyword">var</span> args = [];</div><div class="line"></div><div class="line">    <span class="comment">//遍历用户所需要的内容</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;= params.length<span class="number">-2</span>;i++)&#123;</div><div class="line">        <span class="comment">//遍历所有的功能，找到和用户所需要的功能对应的内容</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k  <span class="keyword">in</span> features)&#123;</div><div class="line">            <span class="keyword">if</span>(k == params[i])&#123;</div><div class="line">                args.push(features[k]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//将用户所需要的所有的功能，传入callback进行调用</span></div><div class="line">    callback.apply(<span class="literal">null</span>,args);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="ng-class"><a href="#ng-class" class="headerlink" title="ng-class"></a>ng-class</h2><p><code>可以用来绑定类样式</code></p>
+<p>1.ng-class = “数据”   数据中存储的可以直接是类名</p>
+<p>2.ng-class = “数据”   数据中存储的是一个对象，对象中的属性名表示类名，属性值表示该类名有没有在元素中出现，是一个布尔值！<br>ng-class=”{red:true,green:false}”</p>
+<h2 id="ng-repeat"><a href="#ng-repeat" class="headerlink" title="ng-repeat"></a>ng-repeat</h2><p><code>用来遍历数据，生成html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ng-repeat</span> = <span class="string">"item in list"</span>&gt;</span>&#123;&#123;item&#125;&#125; <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ng-repeat</span> = <span class="string">"item in list"</span>&gt;</span>&#123;&#123;item&#125;&#125; &#123;&#123;$index&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ng-repeat</span> = <span class="string">"(key,value) in list"</span>&gt;</span>&#123;&#123;key&#125;&#125; &#123;&#123;value&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">ng-repeat不仅可以遍历数组，也可以遍历对象</div></pre></td></tr></table></figure>
+<p>ng-repeat比那里的数组中的内容是不允许重复的，如果想要重复的内容，需要加上track by<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ng-repeat</span> = <span class="string">"item in list track by 一个唯一的值"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">唯一的值一般使用的就是$index</div></pre></td></tr></table></figure></p>
+<h2 id="ng-cloak"><a href="#ng-cloak" class="headerlink" title="ng-cloak"></a>ng-cloak</h2><p><code>原理：在angular加载完毕之后，所有ng-cloak相关的内容全都会被移</code></p>
+<ol>
+<li><p>声明ng-cloak的类样式，或者用属性选择器，加上display：none</p>
+</li>
+<li><p>在元素中使用class=”ng-cloak”,活在加上ng-cloak属性 将元素隐藏</p>
+</li>
+<li><p>在angular加载完毕之后，ng-cloak的类样式和ng-cloak属性都将被移除，元素显示！</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/08/angular/" data-id="cj4vaywy20000jwujjsca51h9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/07/css3/" class="article-date">
+  <time datetime="2017-07-07T12:41:17.000Z" itemprop="datePublished">2017-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/07/css3/">css3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2017年7月7日"><a href="#2017年7月7日" class="headerlink" title="2017年7月7日"></a>2017年7月7日</h1><h2 id="一-私有前缀"><a href="#一-私有前缀" class="headerlink" title="一.私有前缀"></a>一.私有前缀</h2><h3 id="兼容圆角："><a href="#兼容圆角：" class="headerlink" title="兼容圆角："></a>兼容圆角：</h3><p>—webkit-border-radius :50% //谷歌 苹果</p>
+<p>—moz-border-radius：50% //火狐</p>
+<p>—o-border-radius：50% //欧朋</p>
+<p>—ms-border-radius:50% // ie</p>
+<h3 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h3><p>先考虑兼容问题 然后使用最新的属性来代替</p>
+<h3 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h3><p>开始就构建完成的功能，然后再针对低版本浏览器进行兼容</p>
+<h3 id="手册"><a href="#手册" class="headerlink" title="手册"></a>手册</h3><ol>
+<li>[]   表示全部可选项</li>
+<li>||   表示或者</li>
+<li>|    表示多选一</li>
+<li>？   表示0个或者1个   0 || 1</li>
+<li><ul>
+<li>表示0个或者多个   &gt;0</li>
+</ul>
+</li>
+<li>{}   表示范围</li>
+</ol>
+<h2 id="选择器（3种）"><a href="#选择器（3种）" class="headerlink" title="选择器（3种）"></a>选择器（3种）</h2><h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><ol>
+<li>E[ attr ]  表示存在attr属性即可</li>
+<li>E[ attr=var ]    表示属性值完全等于val</li>
+<li>E[ attr*=val ]   表示的属性值里面包含val字符并且在 “任意” 位置</li>
+<li>E[ attr^=val ]   表示的属性值里面包含了val字符并且在 “开始” 位置</li>
+<li>E[ attr$=val ]   表示的属性值里面包含了val字符并且在 “结束” 位置 </li>
+<li>E[ attr ][ href=val ] </li>
+</ol>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><p>css3之前的伪类选择器 ：link，：active，：visited， ：hover</p>
+<p>css3 新增选择器</p>
+<p>序选择器/结构选择器：</p>
+<p>步骤：</p>
+<ol>
+<li>找到li元素</li>
+<li>通过li找到父元素</li>
+<li>通过父元素找到所有的子元素 child</li>
+<li>再去找第几个子元素 first last nth</li>
+<li>确定是不是li 如果是就选中 如果不是那么就是无效选择器</li>
+</ol>
+<p>1/ li:nth-child(2)  选择到第二个li</p>
+<p>2/ li:nth-child(2n)  n的取值范围：正整数 0 —— 无穷大 选择到第2列的所有li </p>
+<p>3/ li:nth-child(2n-1) n这个变量必须要在公式前面 选择到第一列的所有的li</p>
+<p>4/ li:nth-last-child(2) 选择倒数第二个li</p>
+<p>5/ li：nth-last-child(-n+2) 选择后面二个li </p>
+<h3 id="单个选择器-empty"><a href="#单个选择器-empty" class="headerlink" title="单个选择器 empty"></a>单个选择器 empty</h3><p>span：empty {display：none}</p>
+<h3 id="锚点选择器-target"><a href="#锚点选择器-target" class="headerlink" title="锚点选择器 target"></a>锚点选择器 target</h3><p>h1：targer {color：red} 当前锚点对应的元素会被选中</p>
+<h3 id="排除选择器-not"><a href="#排除选择器-not" class="headerlink" title="排除选择器 not"></a>排除选择器 not</h3><p>.class:not(#id) 排除ID为 id的这个元素</p>
+<h3 id="伪元素选择器-伪类："><a href="#伪元素选择器-伪类：" class="headerlink" title="伪元素选择器:: (伪类：)"></a>伪元素选择器:: (伪类：)</h3><ol>
+<li>::before $$ ::after **</li>
+<li>::first-letter 选中li当中的第一个字或者字母 只有块级元素才能使用<br>li::first-letter {font-size:20px; line-height:30px}</li>
+<li>first-line 文本第一个行</li>
+<li>p:nth-child（2）：：selection{background：pink} 内容被选中后的变化</li>
+</ol>
+<h2 id="伪类和伪元素的区别"><a href="#伪类和伪元素的区别" class="headerlink" title="伪类和伪元素的区别"></a>伪类和伪元素的区别</h2><p>伪类的效果可以通过添加一个实际的类来达到，而伪元素的效果则需要通过添加一个实际的元素才能达到，这也是为什么称伪类: 和 伪元素:: 的原因</p>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><ol>
+<li>opacity 子元素会继承父盒子的透明度 里面的文字也透明</li>
+<li>transparent 设置完全透明的颜色 子元素不会被继承</li>
+<li>rgba 透明度也不会被继承</li>
+</ol>
+<h2 id="文本阴影"><a href="#文本阴影" class="headerlink" title="文本阴影"></a>文本阴影</h2><p>text-shadow （多个阴影用逗号分隔）<br>第一个参数:x轴方向的偏移<br>第二个参数:y轴方向的偏移<br>第三个参数:阴影的模糊度 大于0<br>第四个参数:阴影的颜色</p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>box-sizing：content-box; 从内容开始计算 （标准模式盒模型）<br>box-sizing: border-box;  从边框开始计算  (怪异模式盒模型)</p>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><p>圆：<br>border-radius：50%</p>
+<p>盒子阴影：</p>
+<ol>
+<li>外阴影 box.shadow:10px 10px 10px #ccc</li>
+<li>内阴影 box.shadow:10px 10px 10px #ccc inset;</li>
+<li>阴影延伸 box.shadow :0 0 10px 10px #ccc inset ;(第4个参数是阴影的延伸)</li>
+</ol>
+<p>边框图片： </p>
+<ol>
+<li>资源地址：border-image-source：url(“image/xxx”)</li>
+<li>裁剪的尺寸:border-image-slice:27 27 27 27 裁剪的尺寸</li>
+<li>边框的宽度：border-image-width：10px 决定图片显示的大小 图标会自适应显示在范围内</li>
+<li>平铺的方式（3种）border-image-repeat：round/repeat/stretch</li>
+</ol>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="背景-尺寸"><a href="#背景-尺寸" class="headerlink" title="背景-尺寸"></a>背景-尺寸</h3><ol>
+<li>让背景图和外容器一样大小</li>
+</ol>
+<p>background-size：600px 400px；</p>
+<ol>
+<li>让背景图自适应完全显示在盒子里 等比缩放</li>
+</ol>
+<p>background-size：100% auto;</p>
+<ol>
+<li>让背景图片，完全显示在盒子里面</li>
+</ol>
+<p>background-size：contain;</p>
+<ol>
+<li>让背景图片完全铺满整个盒子</li>
+</ol>
+<p>background-size：cover;</p>
+<h3 id="背景-原点"><a href="#背景-原点" class="headerlink" title="背景-原点"></a>背景-原点</h3><p>1.默认的背景原点是</p>
+<p>background-origin：padding-box；</p>
+<p>2.让背景图的原点从内容开始铺</p>
+<p>background-origin：content-box；</p>
+<p>3.让背景图的原点从边框开始铺</p>
+<p>background-origin：border-box</p>
+<h3 id="背景-裁剪"><a href="#背景-裁剪" class="headerlink" title="背景-裁剪"></a>背景-裁剪</h3><p>1.默认的裁剪方式 边框以外的都被裁剪掉</p>
+<p>background-clip：border-box</p>
+<p>2.边距以外的都被裁剪掉</p>
+<p>background-clip:padding-box</p>
+<p>3.内容以外的都被裁剪掉</p>
+<p>background-clip：content-box</p>
+<h3 id="背景-多背景"><a href="#背景-多背景" class="headerlink" title="背景-多背景"></a>背景-多背景</h3><p>background：</p>
+<p>url（”images/xx”）left top;</p>
+<p>url（”images/xx”）right top;</p>
+<p>url（”images/xx”）right buttom;</p>
+<p>url（”images/xx”）left buttom;</p>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><h3 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h3><p>linear-gradient(45deg,yellow.blue)</p>
+<p>参数：渐变的方向，起始的颜色，结束的颜色</p>
+<h3 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h3><p>radial-gradient(150px ,at center,blue,yellow)</p>
+<p>参数：放射半径，中心原点，起始颜色，结束颜色</p>
+<h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><p>transition 元素属性发生改变时触发平滑过渡 （补间动画）</p>
+<p>组合写法：transition：all 4s ease 1s </p>
+<p>拆分：</p>
+<p>1.需要过渡的属性 transition-property：all（border-color，width，hegith……）</p>
+<p>2.过渡的时长  transition-duration：4s；</p>
+<p>3.动画的速度 transition-timing-function：ease（先快后慢）/ linear(匀速的)……</p>
+<p>4.过渡的延时 transition-delay：1s；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/07/css3/" data-id="cj4vaywy70001jwujw20rpets" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-模块化实现第三方内容" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/29/模块化实现第三方内容/" class="article-date">
+  <time datetime="2017-06-29T13:50:52.000Z" itemprop="datePublished">2017-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/29/模块化实现第三方内容/">模块化实现第三方内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2017年6月29-22：00"><a href="#2017年6月29-22：00" class="headerlink" title="2017年6月29 22：00"></a>2017年6月29 22：00</h1><h2 id="使用require"><a href="#使用require" class="headerlink" title="使用require()"></a>使用require()</h2><p>使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用</p>
+<h2 id="通过shim属性配置实现第三方非模块的内容设置依赖项"><a href="#通过shim属性配置实现第三方非模块的内容设置依赖项" class="headerlink" title="通过shim属性配置实现第三方非模块的内容设置依赖项"></a>通过shim属性配置实现第三方非模块的内容设置依赖项</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="comment">//设置所有模块的路径查找，（能够共享的目录）</span></div><div class="line">    baseUrl:<span class="string">"/"</span>,</div><div class="line">    <span class="comment">// 为每个模块设置一个别名 （方便使用）</span></div><div class="line">    paths:&#123;</div><div class="line">        <span class="string">"jquery"</span>:<span class="string">"assets/jQuery/jquery.main"</span>,</div><div class="line">        <span class="string">"animate"</span>:<span class="string">"assets/animate/animate"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//通过shim属性配置实现第三方非模块的内容设置依赖项</span></div><div class="line">    shim:&#123;</div><div class="line">       <span class="comment">//属性名： 第三方非模块内容的别名</span></div><div class="line">       <span class="string">"animate"</span>:&#123;</div><div class="line">           <span class="comment">//dependences:属性可以给这个模块加载的依赖项</span></div><div class="line">           deps:[<span class="string">"jquery"</span>],</div><div class="line">           <span class="comment">//可以通过exprots属性，为当前的非模块化内容，设置类似于模块化返回值的内容，这里设置的是一个名字。require.js会根据这个名字去非模块化的内容中查找和其同名的全局变量。最终将这个变量的值作为模块的输出，返回值使用</span></div><div class="line">           exports：<span class="string">"animate"</span></div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">require</span>([<span class="string">"animate"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">animate</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(animate);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/29/模块化实现第三方内容/" data-id="cj4vaywyo0002jwuj3y112rvy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/08/angular/">angular</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/07/css3/">css3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/29/模块化实现第三方内容/">模块化实现第三方内容</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
