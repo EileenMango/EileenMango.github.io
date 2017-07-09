@@ -253,6 +253,202 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/09/css3（后续）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/09/css3（后续）/" itemprop="url">（后续）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-09T19:00:25+08:00">
+                2017-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2017年7月9日-19-00"><a href="#2017年7月9日-19-00" class="headerlink" title="2017年7月9日 19:00"></a>2017年7月9日 19:00</h1><h2 id="2D转换-（tranform）"><a href="#2D转换-（tranform）" class="headerlink" title="2D转换 （tranform）"></a>2D转换 （tranform）</h2><p> <code>tranform可以实现元素的位移、旋转、变形、缩放</code></p>
+<h3 id="2D转换-缩放scale"><a href="#2D转换-缩放scale" class="headerlink" title="2D转换-缩放scale"></a>2D转换-缩放scale</h3> <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:scale(0.5</span> , 1)</div></pre></td></tr></table></figure>
+<ol>
+<li>参数一 ：整体缩放的倍数 如果比1大 便是放大，如果比1小 遍是缩小</li>
+<li>参数二 ：第一个参数是x轴的缩放比， 第二个参数是y轴的缩放比</li>
+</ol>
+<h3 id="2D转换-旋转rotate"><a href="#2D转换-旋转rotate" class="headerlink" title="2D转换-旋转rotate"></a>2D转换-旋转rotate</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:rotate(52deg)</span></div></pre></td></tr></table></figure>
+<ol>
+<li>参数一：旋转的角度，单位是deg; 正角度是 顺时针旋转，负角度是 逆时针旋转</li>
+</ol>
+<h3 id="2D旋转-倾斜skew"><a href="#2D旋转-倾斜skew" class="headerlink" title="2D旋转-倾斜skew"></a>2D旋转-倾斜skew</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:skew(22deg</span>,0<span class="selector-tag">deg</span>)(<span class="selector-tag">x</span>,<span class="selector-tag">y</span> 不同时使用)</div></pre></td></tr></table></figure>
+<ol>
+<li>参数一：x轴方向的倾斜 角度是正数 是逆时针倾斜；角度是负数 是顺时针倾斜</li>
+<li>参数二：y轴方向的倾斜 角度是正数 是顺时针倾斜；角度是负数 是逆时针倾斜</li>
+</ol>
+<h3 id="2D转换-原点origin"><a href="#2D转换-原点origin" class="headerlink" title="2D转换-原点origin"></a>2D转换-原点origin</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">transform-origin：left top </div><div class="line">//设置转换原点 要注意 需要提前声明原点</div><div class="line">//中心原点是一个默认的原点 left top/right top</div></pre></td></tr></table></figure>
+<h2 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h2><p><code>透视 perspective 3D效果 通过透视呈现  只能在平面上，产生近大远小的效果  视觉上的效果 不是真正意义上的3D呈现</code></p>
+<p>如果想在网页上呈现3D效果 需要添加 transform-style：preserve-3d；</p>
+<p>perspective两种写法：</p>
+<ol>
+<li>在父元素中写 perspective：100px;（子元素都生效）</li>
+<li>在子元素中写 transform perspective（100px）rotateX(90deg)</li>
+</ol>
+<h3 id="translate3D-x-y-z"><a href="#translate3D-x-y-z" class="headerlink" title="translate3D(x,y,z)"></a>translate3D(x,y,z)</h3><p><code>translateX/Y/Z(w px) w正数是放大 w负数是缩小</code></p>
+<p>六个属性：</p>
+<pre><code>1. 绕X轴旋转 rotateX， 3D转换-旋转rotateX.html
+2. 绕Y轴旋转 rotateY， 3D转换-旋转rotateY.html
+3. 绕Z轴旋转 rotateZ，3D转换-旋转rotateZ.html
+4. 在X轴移动， 3D转换-移动translateX.html
+5. 在Y轴移动， 3D转换-移动translateY.html
+6. 在Z轴移动， 3D转换-移动translateZ.html
+</code></pre><p><code>补充：3D呈现 transform-style:preserve-3d;</code></p>
+<h2 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画 animation"></a>动画 animation</h2><p><code>通过设置多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果</code></p>
+<p>必要元素</p>
+<pre><code>1. 通过@keyframes指定动画序列； //前缀兼容 @-webkit-keyframes
+2. 通过百分比将动画序列分割成多个节点；（确定执行时间）
+3. 在各个节点转中分别定义各属性；
+4. 通过animation将动画应用于相应元素；
+</code></pre><p><code>@keyframes 是关键字 用来定义动画系列 后面是自定义的动画系列的名称</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//调用动画</div><div class="line">img &#123;</div><div class="line">    animation : f 8s ; //前缀兼容 -kebkit-animation</div><div class="line">&#125;</div><div class="line"></div><div class="line">@keyframes f &#123;</div><div class="line">    0%&#123; //（from）  初始动画的状态&#125;</div><div class="line">    25%&#123; transform：scale(1.5) rotate(360deg);&#125;</div><div class="line">    75%&#123; transform: scale(0.8) rotate(0deg);&#125;</div><div class="line">    100%&#123;// (to) </div><div class="line">        transform:scale(1)rotate(-60deg);</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关键属性：</p>
+<pre><code>1. animation-name设置动画序列名称
+2. animation-duration动画持续时间
+3. animation-delay动画延时时间
+4. animation-timing-function动画执行速度，linear、ease等 //：steps（3）分多少步执行完成
+5. animation-play-state动画播放状态，running（运转，播放）、paused（暂停）等
+6. animation-direction动画逆播，alternate（交替，轮流）等（也算在播放次数内）
+7. animation-fill-mode动画执行完毕后状态，forwards（保持）、backwards（默认 还原）等
+8. animation-iteration-count：2动画执行次数，infinite（无穷）等
+</code></pre><p><code>补充：参数值的顺序  除了名字、动画时间、延时有严格顺序  其他都随意</code></p>
+<h2 id="伸缩布局-Flex-container"><a href="#伸缩布局-Flex-container" class="headerlink" title="伸缩布局 Flex container"></a>伸缩布局 Flex container</h2><p>伸缩布局 fles布局</p>
+<pre><code>1. 伸缩容器 父容器 display：flex
+2. 子容器 （使用伸缩的一些属性） flex：等份；
+</code></pre><p>display：flex //默认是所有的元素在一行显示 默认的排列方式是横向排列</p>
+<p>flex-wrap：wrap； 换行 (默认是 nowrap：wrap)</p>
+<p>flew：1；设置 子容器 占剩余的宽度的多少份 //把剩余的宽度分成多少份 子容器只要设置了flex计算所有flex的和 就是总份数</p>
+<p>flex-direction：column 控制伸缩容器的排列方向 默认是横向row纵向；</p>
+<h2 id="字体-webfont"><a href="#字体-webfont" class="headerlink" title="字体 webfont"></a>字体 webfont</h2><h3 id="web字体"><a href="#web字体" class="headerlink" title="web字体"></a>web字体</h3><pre><code>1.使用某一个字体的时候，在客户的系统上面，可能出现不支持的情况，使用系统默认的字体
+2.使用的字体， 是会有约束文件的（指定某一个字符对应的图）称为 字体文件
+3.如果系统里没有这种文件约束，使用的是web，是需要传从服务端索取，索取字体文件 解决客户的系统抵挡不支持的字体
+4.第三方的字体 可以解决不支持字体的系统
+5.a/需要下载字体的文件(.eot .svg .ttf .woff .woff2 .otf)不同的字体文件的格式 用来解决不同浏览器兼容；
+    b/定义第三方字体 关键字@font-face{
+        c/指定字体的名称（可以自定义）
+          font-family：wal520；
+            e/引用字体文件 （固定写法）
+                src：url(&quot;LiDeBiao-Xing3.eot? #iefix&quot;) format（&quot;svg&quot;） //兼容ie678
+    }            
+}
+</code></pre><h3 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h3><pre><code>1.字体约束文件里有自己的编码格式
+2.在html当中要使用一段文字符表示一个图标的是 字体文件的编码
+3.写在content当中，字符编码保持一致
+4.转移符+对应的字符
+span：：befor{
+    font-family：iconfont；
+    content：&quot;\e911&quot;;
+    font-size:52px;(字体具有的功能 图标也具有)
+}
+</code></pre><h3 id="字体图标库的使用"><a href="#字体图标库的使用" class="headerlink" title="字体图标库的使用"></a>字体图标库的使用</h3><pre><code>引入图标库 &lt;link rel=&quot;&quot;&gt;
+&lt;span class =&quot;fa fa-key&quot;&gt;&lt;/span&gt;
+</code></pre><h4 id="总结-字体图标-（三大特点）"><a href="#总结-字体图标-（三大特点）" class="headerlink" title="总结 字体图标 （三大特点）"></a>总结 字体图标 （三大特点）</h4><ol>
+<li>矢量 不会失真</li>
+<li>纯色 只能使用一种颜色的图标（精灵图可以使用多种颜色）text-shadow：0 0 10px red；可加阴影</li>
+<li>加载  集成在一个文件里面 可提高加载速度</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/09/angular（后续1）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -919,7 +1115,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
