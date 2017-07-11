@@ -1,0 +1,721 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="2017年7月11日 17:30服务的创建方式 service  1234567模块对象    .service(&quot;服务名&quot;，[&quot;注入的服务&quot;,funciton(注入的服务)&amp;#123;        //通过this给服务添加属性和方法，最终提供给调用服务的人使用        //最终用户获取到的服务对象，其实就是使用本函数，构造出来的 ，也就是说用new的方式创建出来的        thi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular（后继2）">
+<meta property="og:url" content="http://yoursite.com/2017/07/11/angular（后继2）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2017年7月11日 17:30服务的创建方式 service  1234567模块对象    .service(&quot;服务名&quot;，[&quot;注入的服务&quot;,funciton(注入的服务)&amp;#123;        //通过this给服务添加属性和方法，最终提供给调用服务的人使用        //最终用户获取到的服务对象，其实就是使用本函数，构造出来的 ，也就是说用new的方式创建出来的        thi">
+<meta property="og:updated_time" content="2017-07-11T12:11:44.482Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angular（后继2）">
+<meta name="twitter:description" content="2017年7月11日 17:30服务的创建方式 service  1234567模块对象    .service(&quot;服务名&quot;，[&quot;注入的服务&quot;,funciton(注入的服务)&amp;#123;        //通过this给服务添加属性和方法，最终提供给调用服务的人使用        //最终用户获取到的服务对象，其实就是使用本函数，构造出来的 ，也就是说用new的方式创建出来的        thi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/11/angular（后继2）/"/>
+
+
+
+
+
+  <title>angular（后继2） | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/angular（后继2）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">angular（后继2）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-11T17:31:52+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="2017年7月11日-17-30"><a href="#2017年7月11日-17-30" class="headerlink" title="2017年7月11日 17:30"></a>2017年7月11日 17:30</h1><h2 id="服务的创建方式"><a href="#服务的创建方式" class="headerlink" title="服务的创建方式"></a>服务的创建方式</h2><ol>
+<li>service</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">模块对象</div><div class="line">    .service(<span class="string">"服务名"</span>，[<span class="string">"注入的服务"</span>,funciton(注入的服务)&#123;</div><div class="line">        <span class="comment">//通过this给服务添加属性和方法，最终提供给调用服务的人使用</span></div><div class="line">        <span class="comment">//最终用户获取到的服务对象，其实就是使用本函数，构造出来的 ，也就是说用new的方式创建出来的</span></div><div class="line">        <span class="keyword">this</span>.数据：数据</div><div class="line">        <span class="keyword">this</span>.方法 = <span class="function"><span class="keyword">function</span>（）</span>&#123;&#125;</div><div class="line">    &#125;])</div></pre></td></tr></table></figure>
+<ol>
+<li>factory</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">模块对象</div><div class="line">    .factory(<span class="string">"服务名"</span>,[<span class="string">"注入服务"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">注入服务</span>)</span>&#123;</div><div class="line">        <span class="comment">//通过给obj对象添加属性和方法，最终提供给调用服务的人使用</span></div><div class="line">        <span class="comment">//最终用户获取到的服务对象，其实就是使用本函数，使用工厂模式创建出来的</span></div><div class="line">        <span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">        数据 ： 数据,</div><div class="line">        方法 ： <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;])</div></pre></td></tr></table></figure>
+<ol>
+<li>value</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">模块名称</div><div class="line">    .value(<span class="string">"服务名称"</span>,&#123;</div><div class="line">        <span class="comment">//最终提供服务的对象，就是对象本对象</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<ol>
+<li>constant</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">模块名称</div><div class="line">    .constant(<span class="string">"服务名称"</span>,&#123;</div><div class="line">        <span class="comment">//最终提供服务的对象，就是本对象</span></div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
+<ol>
+<li>provider</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">模块名称</div><div class="line">    .provider(<span class="string">"服务名称"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//这里可以声明一些变量，来保存服务的配置信息</span></div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="comment">//这个对象其实就是在config方法中获取到的 服务provide对象</span></div><div class="line">            <span class="comment">//这个对象中必须包含一个$get方法</span></div><div class="line">            $get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> &#123;</div><div class="line">                    <span class="comment">//这个对象就是最终的服务对象，用户所使用的f服务就是本对象！</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h2 id="Dirty-Check-脏检查机制，ng双向数据绑定的原理"><a href="#Dirty-Check-脏检查机制，ng双向数据绑定的原理" class="headerlink" title="Dirty-Check 脏检查机制，ng双向数据绑定的原理"></a>Dirty-Check 脏检查机制，ng双向数据绑定的原理</h2><p>在angular初始化的时候，会先创建模块对象，初始化该模块的时候，会在该模块所管辖的view范围内，搜索所有的ng指令，找到指令之后，为每一个指令绑定一个$watcher，这个watcher会在数据或者dom元素发生改变的时候，被调用！</p>
+<p>每当有一个watcher被触发，那么就会开启一次新的$digest，$digest中，会对所有的$watcher，一次执行来检测是否有数据变化，如果有变化，会重新启动一次$degist,依次循环，直到检测不到任何的变化位置，最终开始更新dom操作！</p>
+<p>$apply<br>其实就是将相应的操作做了一个包装，先执行这些操作，然后再去调用$digest开始在脏检查</p>
+<p>在angular中angular负责的所有的内容，都会默认的被$apply进行包裹，如果使用到了非angular控制的内容，比如setTimeout，在这里面的数据操作，将不会触发watcher，也就不会进行脏检查，所以，我们需要手动进行脏检查</p>
+<pre><code>使用步骤：
+1.调用$apply来执行数据操作
+$scope.$apply(function(){
+    //做需要的数据操作
+})
+2.做完数据操作之后，手动调$digest方法
+$scope.$digest();
+</code></pre><h2 id="angular-route"><a href="#angular-route" class="headerlink" title="angular-route"></a>angular-route</h2><p>使用步骤：</p>
+<pre><code>1. 引入angular-route.js文件
+2. 在使用该angular-route模板的模块中加入依赖项 ngRoute
+3. 在模块的config方法中对angular-route进行配置  配置需要注入的内容为 $routeProvider
+4. 使用when方法进行配置
+angular
+    .module(&quot;app&quot;,[&quot;ngRoute&quot;])
+    .config([&quot;$routeProvider&quot;,function($routeProvider){
+        $routeProvider.when(&quot;hash路径匹配规则&quot;,{
+            template:&quot;视图html代码&quot;,
+            //template 属性和templateUrl只需要并且必须存在一个！
+            templateUrl：&quot;视图路径&quot;,
+            controller:&quot;控制器&quot;
+        })
+        //路由传参 在路由规则当中指定传参的形式，以及参数的名称
+        .when(&quot;hash路径/:参数名称&quot;,{
+            template:&quot;视图html代码&quot;,
+            templateUrl:&quot;视图路径&quot;,
+            controller:&quot;控制器&quot;
+        })
+        .otherwise({
+            //这里做的就是当所有的匹配规则都不满足的情况下做的事情
+
+            //redirectTo:就是进行路径跳转的操作
+            redirectTo:&quot;hash路径&quot;
+        })
+    }])
+
+    //获取路由传递进来的参数
+    .controller(&quot;c&quot;,[&quot;$route&quot;,&quot;$routeParams&quot;,function($route,$routeParams){
+        //1.通过$route服务获取
+        $route.current.pathParams;
+        //2.或通过$routeParams服务获取
+        $routeParams;
+    }])
+</code></pre><h3 id="更改哈希路径前的字符-！"><a href="#更改哈希路径前的字符-！" class="headerlink" title="更改哈希路径前的字符 #！/"></a>更改哈希路径前的字符 #！/</h3><p>感叹号！是在1.6版本之后默认添加上的<br>    //去除方法<br>    .config([“$locationProvider”,function($locationProvider){<br>        //hashPrefix可以更改上面的感叹号，<br>        如果要去掉感叹号就给空字符串<br>        $locationProvider.hashPrefix(“”);<br>    }])</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/09/css3（后续）/" rel="next" title="（后续）">
+                <i class="fa fa-chevron-left"></i> （后续）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017年7月11日-17-30"><span class="nav-number">1.</span> <span class="nav-text">2017年7月11日 17:30</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务的创建方式"><span class="nav-number">1.1.</span> <span class="nav-text">服务的创建方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dirty-Check-脏检查机制，ng双向数据绑定的原理"><span class="nav-number">1.2.</span> <span class="nav-text">Dirty-Check 脏检查机制，ng双向数据绑定的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#angular-route"><span class="nav-number">1.3.</span> <span class="nav-text">angular-route</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改哈希路径前的字符-！"><span class="nav-number">1.3.1.</span> <span class="nav-text">更改哈希路径前的字符 #！/</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
