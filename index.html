@@ -112,7 +112,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'Penulis'
     },
     algolia: {
       applicationID: '',
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Beranda
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Arsip
           </a>
         </li>
       
@@ -253,6 +253,121 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/angular-自定义属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/14/angular-自定义属性/" itemprop="url">angular-自定义属性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Diposting di</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T14:25:21+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2017年7月14日-14-30"><a href="#2017年7月14日-14-30" class="headerlink" title="2017年7月14日 14:30"></a>2017年7月14日 14:30</h1><h2 id="directive"><a href="#directive" class="headerlink" title="directive"></a>directive</h2><p>属性类型的指令使用方式概况：</p>
+<p>1.元素指令的使用<br>    <wal-test></wal-test></p>
+<p>2.类样式指令<br>    <div class="wal-test"></div></p>
+<p>3.注释类型的指令使用<br>    <!-- directive:wal-test --></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">angular</div><div class="line">    .module(<span class="string">"app"</span>,[])</div><div class="line">    .controller(<span class="string">"c1"</span>,[<span class="string">"$scope"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">        $scope.name = <span class="string">"测试"</span>;</div><div class="line">    &#125;])</div><div class="line"></div><div class="line">   <span class="comment">// directive方法可以来自定义指令</span></div><div class="line">  <span class="comment">//第一个参数为 指令名称 驼峰命名法  walTest</span></div><div class="line">  <span class="comment">//指令名名称在html中使用的时候，要写成 wal-text</span></div><div class="line">  <span class="comment">//第二个参数是一个函数，这个函数返回一个对象，这个对象就是最终的指令对象</span></div><div class="line">  .directive(<span class="string">"walText"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> &#123;</div><div class="line">         <span class="attr">templateUrl</span>:<span class="string">"./wal-view.html"</span>,</div><div class="line"></div><div class="line">         <span class="comment">//replaces 属性用来设置是否要将指令所在的元素用模板内容进行替换</span></div><div class="line">         <span class="comment">//如果为true，指令在被渲染之后，指令所在的元素会不见，取而代之的模板里的内容</span></div><div class="line">         <span class="comment">//如果为false，模板的内容会被添加到指令所在的元素内部</span></div><div class="line">         replace:<span class="literal">true</span>;</div><div class="line"></div><div class="line">         <span class="comment">//transclude 属性用来设置是否要将指令所在的元素中的内容保留下来</span></div><div class="line">         <span class="comment">//在模板中使用 ng-transclude</span></div><div class="line">         transclude:<span class="literal">true</span>;</div><div class="line"></div><div class="line">         <span class="comment">//restrict 指令的类型：E (element) ,C (class), M (comment), A (attribute)</span></div><div class="line">        restrict:<span class="string">"ECMA"</span>,</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//这里就是进行自定义的指令操作</span></div><div class="line">        link:<span class="function"><span class="keyword">function</span>(<span class="params">scope,element,attr</span>)</span>&#123;</div><div class="line"></div><div class="line">            <span class="comment">//scope获取到就是作用域相关的内容</span></div><div class="line">            <span class="built_in">console</span>.log(scope);</div><div class="line"></div><div class="line">            <span class="comment">//element 获取到的是jqlite对象，指令所在的元素</span></div><div class="line">            <span class="built_in">console</span>.log(element);</div><div class="line"></div><div class="line">            <span class="comment">//attr获取到的就是指令所在元素的属性信息</span></div><div class="line">            <span class="built_in">console</span>.log(attr);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/angular（后继2）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -282,7 +397,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-11T17:31:52+08:00">
                 2017-07-11
@@ -460,7 +575,7 @@ angular
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-09T19:00:25+08:00">
                 2017-07-09
@@ -656,7 +771,7 @@ span：：befor{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-09T09:55:44+08:00">
                 2017-07-09
@@ -786,7 +901,7 @@ span：：befor{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-08T16:06:46+08:00">
                 2017-07-08
@@ -947,7 +1062,7 @@ span：：befor{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-07T20:41:17+08:00">
                 2017-07-07
@@ -1174,7 +1289,7 @@ span：：befor{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T21:50:52+08:00">
                 2017-06-29
@@ -1293,8 +1408,8 @@ span：：befor{
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posting</span>
               </a>
             </div>
           
@@ -1348,11 +1463,11 @@ span：：befor{
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

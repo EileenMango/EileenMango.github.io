@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
+<meta name="description" content="2017年7月14日 14:30directive属性类型的指令使用方式概况： 1.元素指令的使用     2.类样式指令     3.注释类型的指令使用     1234567891011121314151617181920212223242526272829303132333435363738394041angular    .module(&quot;app&quot;,[])    .controller(&quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模块化实现第三方内容">
-<meta property="og:url" content="http://yoursite.com/2017/06/29/模块化实现第三方内容/index.html">
+<meta property="og:title" content="angular-自定义属性">
+<meta property="og:url" content="http://yoursite.com/2017/07/14/angular-自定义属性/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
-<meta property="og:updated_time" content="2017-06-29T14:17:49.719Z">
+<meta property="og:description" content="2017年7月14日 14:30directive属性类型的指令使用方式概况： 1.元素指令的使用     2.类样式指令     3.注释类型的指令使用     1234567891011121314151617181920212223242526272829303132333435363738394041angular    .module(&quot;app&quot;,[])    .controller(&quot;">
+<meta property="og:updated_time" content="2017-07-14T11:07:13.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模块化实现第三方内容">
-<meta name="twitter:description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
+<meta name="twitter:title" content="angular-自定义属性">
+<meta name="twitter:description" content="2017年7月14日 14:30directive属性类型的指令使用方式概况： 1.元素指令的使用     2.类样式指令     3.注释类型的指令使用     1234567891011121314151617181920212223242526272829303132333435363738394041angular    .module(&quot;app&quot;,[])    .controller(&quot;">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/29/模块化实现第三方内容/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/14/angular-自定义属性/"/>
 
 
 
 
 
-  <title>模块化实现第三方内容 | Hexo</title>
+  <title>angular-自定义属性 | Hexo</title>
   
 
 
@@ -255,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/29/模块化实现第三方内容/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/angular-自定义属性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模块化实现第三方内容</h1>
+          <h1 class="post-title" itemprop="name headline">angular-自定义属性</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T21:50:52+08:00">
-                2017-06-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T14:25:21+08:00">
+                2017-07-14
               </time>
             
 
@@ -319,8 +319,11 @@
       
 
       
-        <h1 id="2017年6月29-22：00"><a href="#2017年6月29-22：00" class="headerlink" title="2017年6月29 22：00"></a>2017年6月29 22：00</h1><h2 id="使用require"><a href="#使用require" class="headerlink" title="使用require()"></a>使用require()</h2><p>使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用</p>
-<h2 id="通过shim属性配置实现第三方非模块的内容设置依赖项"><a href="#通过shim属性配置实现第三方非模块的内容设置依赖项" class="headerlink" title="通过shim属性配置实现第三方非模块的内容设置依赖项"></a>通过shim属性配置实现第三方非模块的内容设置依赖项</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="comment">//设置所有模块的路径查找，（能够共享的目录）</span></div><div class="line">    baseUrl:<span class="string">"/"</span>,</div><div class="line">    <span class="comment">// 为每个模块设置一个别名 （方便使用）</span></div><div class="line">    paths:&#123;</div><div class="line">        <span class="string">"jquery"</span>:<span class="string">"assets/jQuery/jquery.main"</span>,</div><div class="line">        <span class="string">"animate"</span>:<span class="string">"assets/animate/animate"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//通过shim属性配置实现第三方非模块的内容设置依赖项</span></div><div class="line">    shim:&#123;</div><div class="line">       <span class="comment">//属性名： 第三方非模块内容的别名</span></div><div class="line">       <span class="string">"animate"</span>:&#123;</div><div class="line">           <span class="comment">//dependences:属性可以给这个模块加载的依赖项</span></div><div class="line">           deps:[<span class="string">"jquery"</span>],</div><div class="line">           <span class="comment">//可以通过exprots属性，为当前的非模块化内容，设置类似于模块化返回值的内容，这里设置的是一个名字。require.js会根据这个名字去非模块化的内容中查找和其同名的全局变量。最终将这个变量的值作为模块的输出，返回值使用</span></div><div class="line">           exports：<span class="string">"animate"</span></div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">require</span>([<span class="string">"animate"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">animate</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(animate);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+        <h1 id="2017年7月14日-14-30"><a href="#2017年7月14日-14-30" class="headerlink" title="2017年7月14日 14:30"></a>2017年7月14日 14:30</h1><h2 id="directive"><a href="#directive" class="headerlink" title="directive"></a>directive</h2><p>属性类型的指令使用方式概况：</p>
+<p>1.元素指令的使用<br>    <wal-test></wal-test></p>
+<p>2.类样式指令<br>    <div class="wal-test"></div></p>
+<p>3.注释类型的指令使用<br>    <!-- directive:wal-test --></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">angular</div><div class="line">    .module(<span class="string">"app"</span>,[])</div><div class="line">    .controller(<span class="string">"c1"</span>,[<span class="string">"$scope"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">        $scope.name = <span class="string">"测试"</span>;</div><div class="line">    &#125;])</div><div class="line"></div><div class="line">   <span class="comment">// directive方法可以来自定义指令</span></div><div class="line">  <span class="comment">//第一个参数为 指令名称 驼峰命名法  walTest</span></div><div class="line">  <span class="comment">//指令名名称在html中使用的时候，要写成 wal-text</span></div><div class="line">  <span class="comment">//第二个参数是一个函数，这个函数返回一个对象，这个对象就是最终的指令对象</span></div><div class="line">  .directive(<span class="string">"walText"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> &#123;</div><div class="line">         <span class="attr">templateUrl</span>:<span class="string">"./wal-view.html"</span>,</div><div class="line"></div><div class="line">         <span class="comment">//replaces 属性用来设置是否要将指令所在的元素用模板内容进行替换</span></div><div class="line">         <span class="comment">//如果为true，指令在被渲染之后，指令所在的元素会不见，取而代之的模板里的内容</span></div><div class="line">         <span class="comment">//如果为false，模板的内容会被添加到指令所在的元素内部</span></div><div class="line">         replace:<span class="literal">true</span>;</div><div class="line"></div><div class="line">         <span class="comment">//transclude 属性用来设置是否要将指令所在的元素中的内容保留下来</span></div><div class="line">         <span class="comment">//在模板中使用 ng-transclude</span></div><div class="line">         transclude:<span class="literal">true</span>;</div><div class="line"></div><div class="line">         <span class="comment">//restrict 指令的类型：E (element) ,C (class), M (comment), A (attribute)</span></div><div class="line">        restrict:<span class="string">"ECMA"</span>,</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//这里就是进行自定义的指令操作</span></div><div class="line">        link:<span class="function"><span class="keyword">function</span>(<span class="params">scope,element,attr</span>)</span>&#123;</div><div class="line"></div><div class="line">            <span class="comment">//scope获取到就是作用域相关的内容</span></div><div class="line">            <span class="built_in">console</span>.log(scope);</div><div class="line"></div><div class="line">            <span class="comment">//element 获取到的是jqlite对象，指令所在的元素</span></div><div class="line">            <span class="built_in">console</span>.log(element);</div><div class="line"></div><div class="line">            <span class="comment">//attr获取到的就是指令所在元素的属性信息</span></div><div class="line">            <span class="built_in">console</span>.log(attr);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -356,15 +359,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/11/angular（后继2）/" rel="next" title="angular（后继2）">
+                <i class="fa fa-chevron-left"></i> angular（后继2）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/07/css3/" rel="prev" title="css3">
-                css3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,7 +478,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017年6月29-22：00"><span class="nav-number">1.</span> <span class="nav-text">2017年6月29 22：00</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用require"><span class="nav-number">1.1.</span> <span class="nav-text">使用require()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过shim属性配置实现第三方非模块的内容设置依赖项"><span class="nav-number">1.2.</span> <span class="nav-text">通过shim属性配置实现第三方非模块的内容设置依赖项</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017年7月14日-14-30"><span class="nav-number">1.</span> <span class="nav-text">2017年7月14日 14:30</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#directive"><span class="nav-number">1.1.</span> <span class="nav-text">directive</span></a></li></ol></li></ol></div>
             
 
           </div>
