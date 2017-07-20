@@ -112,7 +112,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Penulis'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Home
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archives
           </a>
         </li>
       
@@ -253,6 +253,279 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/express/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/20/express/" itemprop="url">express</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-20T20:48:18+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2017-7-20"><a href="#2017-7-20" class="headerlink" title="2017.7.20"></a>2017.7.20</h1><h2 id="express-模块"><a href="#express-模块" class="headerlink" title="express 模块"></a>express 模块</h2><p><code>返回值：即是函数 也是对象</code></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法:"></a>用法:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.加载 express 模块</span></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'require'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 2.通过express 创建一个 app 对象</span></div><div class="line"><span class="keyword">var</span> app =  express();</div><div class="line"></div><div class="line"><span class="comment">// 4. 直接写路由处理</span></div><div class="line">app.use(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// res.end() 是 node.js 原生的一个方法</span></div><div class="line">    <span class="comment">// res.send() 是 exprss 框架帮我们封装的一个更高级的一个方法</span></div><div class="line">    <span class="comment">// res.send() 方法  参数可以是string，Buffer对象，Array（json对象），普通对象 ；通过调用该方法进行响应，会自动添加一些响应头（Content-Type，Content-Length等）</span></div><div class="line">    <span class="comment">// 在Express 框架中的 req 和 res 对象，都是基于 node.js 原生的对象进行扩展的</span></div><div class="line">    <span class="comment">//so 在express中， req 和 res 可以像在 node.js 中一样使用</span></div><div class="line"></div><div class="line">    res.send(<span class="string">'你好 吴奥琳'</span>);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 3.启动服务</span></div><div class="line">app.listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="app-use"><a href="#app-use" class="headerlink" title="app.use();"></a>app.use();</h3><ol>
+<li><p>参数1表示：虚拟路径。这个路径只是判断用户请求的标识，当用户用此虚拟路径时，服务器才认为用户请求的是静态资源!</p>
+</li>
+<li><p>参数2表示：用户请求资源的路径</p>
+</li>
+</ol>
+<h3 id="express-static"><a href="#express-static" class="headerlink" title="express.static()"></a>express.static()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">app.use(<span class="string">'/www'</span>,express.status(path.join(__dirname,<span class="string">'public'</span>)));</div></pre></td></tr></table></figure>
+<ol>
+<li>返回值也是一个 方法， 这个被返回的方法就是根据用户请求去读取的目录下静态资源。</li>
+</ol>
+<p>` 补充：</p>
+<pre><code> 1. 当有两个以上 app.use() 时; 虚拟路径不同时 都是可以读取静态资源的 不会出现覆盖的情况
+
+ 2. 当虚拟目录 名称相同时, 路径不同 ，系统会按照设置的先后顺序执行，如果没找到会去第二个设置的目录下去查找
+
+ 3. 第一个参数 虚拟路径不传时  默认的是 &apos;/&apos;
+
+
+`
+</code></pre><h2 id="app-use-和-app-verb-的区别"><a href="#app-use-和-app-verb-的区别" class="headerlink" title="app.use() 和 app.verb() 的区别"></a>app.use() 和 app.verb() 的区别</h2><h3 id="app-verb-有-app-get-post-put-delete-…"><a href="#app-verb-有-app-get-post-put-delete-…" class="headerlink" title="app.verb() 有 app.get \ post \ put \ delete …"></a>app.verb() 有 app.get \ post \ put \ delete …</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">app.get(<span class="string">'/abc'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    res.send(<span class="string">'吴美人 你请求的路径是:'</span> + req.url ); <span class="comment">//   /abc;</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.use(<span class="string">'/abc'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    res.send(<span class="string">'吴美人 你请求的路径是:'</span> + req.url );  <span class="comment">//   /;</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ol>
+<li><p>当通过 app.get() 注册路由的时候，用户只有 请求的路径和注册的路径完全一致时才能匹配到路由</p>
+</li>
+<li><p>当通过 app.use() 注册路由， 只要用户请求的路径是 给定的路径 或者 是给定路径下的某个路径都可以匹配到</p>
+</li>
+</ol>
+<h3 id="app-alla-和-app-use"><a href="#app-alla-和-app-use" class="headerlink" title="app.alla() 和 app.use()"></a>app.alla() 和 app.use()</h3><ol>
+<li><p>app.all (‘/abc’),这个表示无论什么请求方式,只要请求路径匹配就可以触发该方法的回调函数</p>
+</li>
+<li><p>app.use(‘/abc’),无论什么请求方式，只要路径是 由 /abc 或 /abc/xxx  或 /abc/a/d/c 都可以触发该方法的回调函数</p>
+</li>
+</ol>
+<p>` 一般 注册路由 都是用 app.get() \ app.post() \ app.all() …</p>
+<p>  一般 在注册中间的时候使用 app.use()<br>`</p>
+<h2 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 加载 ejs 模块</span></div><div class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span> (<span class="string">'ejs'</span>);</div><div class="line"><span class="keyword">var</span> psth = <span class="built_in">require</span> (<span class="string">'path'</span>);</div><div class="line"><span class="comment">// 1. 直接对字符串进行模板替换</span></div><div class="line"><span class="keyword">var</span> html = ejs.render(<span class="string">'&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;'</span>,&#123;<span class="attr">title</span>:<span class="string">'没关系 都会过去的'</span>&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 2.读取文件，进行模板替换</span></div><div class="line"><span class="keyword">var</span> fileName = path.join(__dirname,<span class="string">'index.html'</span>);</div><div class="line">ejs.renderFile (fileName,&#123;<span class="attr">title</span>:<span class="string">'你好，这个是标题 '</span>,<span class="attr">message</span>:<span class="string">'这个是message中的信息'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,html</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="keyword">throw</span> err;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span> (<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span> (<span class="string">'path'</span>);</div><div class="line"><span class="comment">// var ejs = require ('ejs');  // 集成 ejs 到 express 中，只要安装了ejs即可，无需在代码中 require();</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line"><span class="comment">// 编写处理 请求 /abc 的处理程序</span></div><div class="line">app.get (<span class="string">'/abc'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// express 中的 render 方法使用前 必须配置一个模板引擎，才能使用</span></div><div class="line">    </div><div class="line">    <span class="comment">// res.render(path.join(__dirname,'index.html'),function(err,html)&#123;</span></div><div class="line">    <span class="comment">//    res.send(thml);</span></div><div class="line">    <span class="comment">// &#125;);</span></div><div class="line"></div><div class="line">    <span class="comment">//为 express 配置 ejs 模板引擎</span></div><div class="line">    <span class="comment">// 1. 告诉模板引擎所有模板文件在哪里</span></div><div class="line">    app.set(<span class="string">'views'</span>,path.join(__dirname,<span class="string">'htmls'</span>));</div><div class="line"></div><div class="line">    <span class="comment">// 2. 设置所使用的模板引擎</span></div><div class="line">    app.set(<span class="string">'view engine'</span>,<span class="string">'ejs'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 3.修改模板文件的后缀</span></div><div class="line">    <span class="comment">// 参数1：告诉模板引擎，要使用的模板的后缀；</span></div><div class="line">    <span class="comment">// 参数2：告诉模板引擎，对于.html后缀的模板文件使用哪个方法来处理</span></div><div class="line">    <span class="comment">// app.engine('.html',require('ejs').renderFile);</span></div><div class="line">    <span class="comment">// app.set('view engine','ejs');</span></div><div class="line"></div><div class="line">    <span class="comment">// 调用 res 的render 方法进行渲染</span></div><div class="line">    res.render(<span class="string">'index'</span>,&#123;<span class="attr">msg</span>:<span class="string">'呵呵呵呵'</span>&#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/nodeJS（1）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/14/nodeJS（1）/" itemprop="url">nodeJS（1）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T20:20:06+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2017年7月14日-20-30"><a href="#2017年7月14日-20-30" class="headerlink" title="2017年7月14日 20:30"></a>2017年7月14日 20:30</h1><h2 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h2><p>. 人机交互部分 （ul）<br>. 网络请求部分 （Socket）<br>. JavaScript引擎部分（解析执行JavaScript）<br>. 渲染引擎部分（渲染HTML,CSS等）<br>. 数据存储部分 （cookie HTML5中的本地存储LocalStorage,SessionStorage）</p>
+<h2 id="主流渲染引擎"><a href="#主流渲染引擎" class="headerlink" title="主流渲染引擎"></a>主流渲染引擎</h2><p><code>渲染引擎 又叫 排版引擎 或 浏览器内核</code></p>
+<h3 id="主流的-渲染引擎-有"><a href="#主流的-渲染引擎-有" class="headerlink" title="主流的 渲染引擎 有"></a>主流的 渲染引擎 有</h3><ol>
+<li><p>Chrome浏览器：Bink引擎（WebKit的一个分支）</p>
+</li>
+<li><p>Safari浏览器：WebKit引擎</p>
+</li>
+<li><p>FireFox浏览器：Gecko引擎</p>
+</li>
+<li><p>Opera浏览器：Bink引擎</p>
+</li>
+<li><p>IE浏览器：Trident引擎</p>
+</li>
+</ol>
+<h3 id="渲染引擎工作原理示意图"><a href="#渲染引擎工作原理示意图" class="headerlink" title="渲染引擎工作原理示意图"></a>渲染引擎工作原理示意图</h3>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/angular-自定义属性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -282,7 +555,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T14:25:21+08:00">
                 2017-07-14
@@ -397,7 +670,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-11T17:31:52+08:00">
                 2017-07-11
@@ -575,7 +848,7 @@ angular
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-09T19:00:25+08:00">
                 2017-07-09
@@ -771,7 +1044,7 @@ span：：befor{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-09T09:55:44+08:00">
                 2017-07-09
@@ -901,7 +1174,7 @@ span：：befor{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-08T16:06:46+08:00">
                 2017-07-08
@@ -1062,7 +1335,7 @@ span：：befor{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-07T20:41:17+08:00">
                 2017-07-07
@@ -1289,7 +1562,7 @@ span：：befor{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T21:50:52+08:00">
                 2017-06-29
@@ -1408,8 +1681,8 @@ span：：befor{
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">posting</span>
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1467,7 +1740,7 @@ span：：befor{
 </div>
 
 <div class="theme-info">
-  Tema -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

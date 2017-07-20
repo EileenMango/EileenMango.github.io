@@ -1,0 +1,691 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="2017.7.20express 模块返回值：即是函数 也是对象 用法:1234567891011121314151617181920212223// 1.加载 express 模块var express = require(&apos;require&apos;);// 2.通过express 创建一个 app 对象var app =  express();// 4. 直接写路由处理app.use(&apos;/&apos;,func">
+<meta property="og:type" content="article">
+<meta property="og:title" content="express">
+<meta property="og:url" content="http://yoursite.com/2017/07/20/express/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2017.7.20express 模块返回值：即是函数 也是对象 用法:1234567891011121314151617181920212223// 1.加载 express 模块var express = require(&apos;require&apos;);// 2.通过express 创建一个 app 对象var app =  express();// 4. 直接写路由处理app.use(&apos;/&apos;,func">
+<meta property="og:updated_time" content="2017-07-20T12:49:08.545Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="express">
+<meta name="twitter:description" content="2017.7.20express 模块返回值：即是函数 也是对象 用法:1234567891011121314151617181920212223// 1.加载 express 模块var express = require(&apos;require&apos;);// 2.通过express 创建一个 app 对象var app =  express();// 4. 直接写路由处理app.use(&apos;/&apos;,func">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/20/express/"/>
+
+
+
+
+
+  <title>express | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/express/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">express</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-20T20:48:18+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="2017-7-20"><a href="#2017-7-20" class="headerlink" title="2017.7.20"></a>2017.7.20</h1><h2 id="express-模块"><a href="#express-模块" class="headerlink" title="express 模块"></a>express 模块</h2><p><code>返回值：即是函数 也是对象</code></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法:"></a>用法:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.加载 express 模块</span></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'require'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 2.通过express 创建一个 app 对象</span></div><div class="line"><span class="keyword">var</span> app =  express();</div><div class="line"></div><div class="line"><span class="comment">// 4. 直接写路由处理</span></div><div class="line">app.use(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// res.end() 是 node.js 原生的一个方法</span></div><div class="line">    <span class="comment">// res.send() 是 exprss 框架帮我们封装的一个更高级的一个方法</span></div><div class="line">    <span class="comment">// res.send() 方法  参数可以是string，Buffer对象，Array（json对象），普通对象 ；通过调用该方法进行响应，会自动添加一些响应头（Content-Type，Content-Length等）</span></div><div class="line">    <span class="comment">// 在Express 框架中的 req 和 res 对象，都是基于 node.js 原生的对象进行扩展的</span></div><div class="line">    <span class="comment">//so 在express中， req 和 res 可以像在 node.js 中一样使用</span></div><div class="line"></div><div class="line">    res.send(<span class="string">'你好 吴奥琳'</span>);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 3.启动服务</span></div><div class="line">app.listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="app-use"><a href="#app-use" class="headerlink" title="app.use();"></a>app.use();</h3><ol>
+<li><p>参数1表示：虚拟路径。这个路径只是判断用户请求的标识，当用户用此虚拟路径时，服务器才认为用户请求的是静态资源!</p>
+</li>
+<li><p>参数2表示：用户请求资源的路径</p>
+</li>
+</ol>
+<h3 id="express-static"><a href="#express-static" class="headerlink" title="express.static()"></a>express.static()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">app.use(<span class="string">'/www'</span>,express.status(path.join(__dirname,<span class="string">'public'</span>)));</div></pre></td></tr></table></figure>
+<ol>
+<li>返回值也是一个 方法， 这个被返回的方法就是根据用户请求去读取的目录下静态资源。</li>
+</ol>
+<p>` 补充：</p>
+<pre><code> 1. 当有两个以上 app.use() 时; 虚拟路径不同时 都是可以读取静态资源的 不会出现覆盖的情况
+
+ 2. 当虚拟目录 名称相同时, 路径不同 ，系统会按照设置的先后顺序执行，如果没找到会去第二个设置的目录下去查找
+
+ 3. 第一个参数 虚拟路径不传时  默认的是 &apos;/&apos;
+
+
+`
+</code></pre><h2 id="app-use-和-app-verb-的区别"><a href="#app-use-和-app-verb-的区别" class="headerlink" title="app.use() 和 app.verb() 的区别"></a>app.use() 和 app.verb() 的区别</h2><h3 id="app-verb-有-app-get-post-put-delete-…"><a href="#app-verb-有-app-get-post-put-delete-…" class="headerlink" title="app.verb() 有 app.get \ post \ put \ delete …"></a>app.verb() 有 app.get \ post \ put \ delete …</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">app.get(<span class="string">'/abc'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    res.send(<span class="string">'吴美人 你请求的路径是:'</span> + req.url ); <span class="comment">//   /abc;</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.use(<span class="string">'/abc'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    res.send(<span class="string">'吴美人 你请求的路径是:'</span> + req.url );  <span class="comment">//   /;</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ol>
+<li><p>当通过 app.get() 注册路由的时候，用户只有 请求的路径和注册的路径完全一致时才能匹配到路由</p>
+</li>
+<li><p>当通过 app.use() 注册路由， 只要用户请求的路径是 给定的路径 或者 是给定路径下的某个路径都可以匹配到</p>
+</li>
+</ol>
+<h3 id="app-alla-和-app-use"><a href="#app-alla-和-app-use" class="headerlink" title="app.alla() 和 app.use()"></a>app.alla() 和 app.use()</h3><ol>
+<li><p>app.all (‘/abc’),这个表示无论什么请求方式,只要请求路径匹配就可以触发该方法的回调函数</p>
+</li>
+<li><p>app.use(‘/abc’),无论什么请求方式，只要路径是 由 /abc 或 /abc/xxx  或 /abc/a/d/c 都可以触发该方法的回调函数</p>
+</li>
+</ol>
+<p>` 一般 注册路由 都是用 app.get() \ app.post() \ app.all() …</p>
+<p>  一般 在注册中间的时候使用 app.use()<br>`</p>
+<h2 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 加载 ejs 模块</span></div><div class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span> (<span class="string">'ejs'</span>);</div><div class="line"><span class="keyword">var</span> psth = <span class="built_in">require</span> (<span class="string">'path'</span>);</div><div class="line"><span class="comment">// 1. 直接对字符串进行模板替换</span></div><div class="line"><span class="keyword">var</span> html = ejs.render(<span class="string">'&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;'</span>,&#123;<span class="attr">title</span>:<span class="string">'没关系 都会过去的'</span>&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 2.读取文件，进行模板替换</span></div><div class="line"><span class="keyword">var</span> fileName = path.join(__dirname,<span class="string">'index.html'</span>);</div><div class="line">ejs.renderFile (fileName,&#123;<span class="attr">title</span>:<span class="string">'你好，这个是标题 '</span>,<span class="attr">message</span>:<span class="string">'这个是message中的信息'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,html</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="keyword">throw</span> err;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span> (<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span> (<span class="string">'path'</span>);</div><div class="line"><span class="comment">// var ejs = require ('ejs');  // 集成 ejs 到 express 中，只要安装了ejs即可，无需在代码中 require();</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line"><span class="comment">// 编写处理 请求 /abc 的处理程序</span></div><div class="line">app.get (<span class="string">'/abc'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// express 中的 render 方法使用前 必须配置一个模板引擎，才能使用</span></div><div class="line">    </div><div class="line">    <span class="comment">// res.render(path.join(__dirname,'index.html'),function(err,html)&#123;</span></div><div class="line">    <span class="comment">//    res.send(thml);</span></div><div class="line">    <span class="comment">// &#125;);</span></div><div class="line"></div><div class="line">    <span class="comment">//为 express 配置 ejs 模板引擎</span></div><div class="line">    <span class="comment">// 1. 告诉模板引擎所有模板文件在哪里</span></div><div class="line">    app.set(<span class="string">'views'</span>,path.join(__dirname,<span class="string">'htmls'</span>));</div><div class="line"></div><div class="line">    <span class="comment">// 2. 设置所使用的模板引擎</span></div><div class="line">    app.set(<span class="string">'view engine'</span>,<span class="string">'ejs'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 3.修改模板文件的后缀</span></div><div class="line">    <span class="comment">// 参数1：告诉模板引擎，要使用的模板的后缀；</span></div><div class="line">    <span class="comment">// 参数2：告诉模板引擎，对于.html后缀的模板文件使用哪个方法来处理</span></div><div class="line">    <span class="comment">// app.engine('.html',require('ejs').renderFile);</span></div><div class="line">    <span class="comment">// app.set('view engine','ejs');</span></div><div class="line"></div><div class="line">    <span class="comment">// 调用 res 的render 方法进行渲染</span></div><div class="line">    res.render(<span class="string">'index'</span>,&#123;<span class="attr">msg</span>:<span class="string">'呵呵呵呵'</span>&#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/14/nodeJS（1）/" rel="next" title="nodeJS（1）">
+                <i class="fa fa-chevron-left"></i> nodeJS（1）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-7-20"><span class="nav-number">1.</span> <span class="nav-text">2017.7.20</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#express-模块"><span class="nav-number">1.1.</span> <span class="nav-text">express 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">1.1.1.</span> <span class="nav-text">用法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-use"><span class="nav-number">1.1.2.</span> <span class="nav-text">app.use();</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#express-static"><span class="nav-number">1.1.3.</span> <span class="nav-text">express.static()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app-use-和-app-verb-的区别"><span class="nav-number">1.2.</span> <span class="nav-text">app.use() 和 app.verb() 的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-verb-有-app-get-post-put-delete-…"><span class="nav-number">1.2.1.</span> <span class="nav-text">app.verb() 有 app.get \ post \ put \ delete …</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-alla-和-app-use"><span class="nav-number">1.2.2.</span> <span class="nav-text">app.alla() 和 app.use()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ejs"><span class="nav-number">1.3.</span> <span class="nav-text">ejs</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
