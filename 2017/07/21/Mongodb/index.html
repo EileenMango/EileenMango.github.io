@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
+<meta name="description" content="2017.7.21  19:00Mongodb 介绍`  非关系型数据库 不需要提前设计表结构 最大的好处就是非常灵活 存储的是json数据    ` 12345678910111213141516171819202122232425262728293031323334// 1.加载 mongodb 模块var mongodb = require(&apos;mongodb&apos;);// 2.获取一个 Mong">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模块化实现第三方内容">
-<meta property="og:url" content="http://yoursite.com/2017/06/29/模块化实现第三方内容/index.html">
+<meta property="og:title" content="Mongodb">
+<meta property="og:url" content="http://yoursite.com/2017/07/21/Mongodb/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
-<meta property="og:updated_time" content="2017-06-29T14:17:49.719Z">
+<meta property="og:description" content="2017.7.21  19:00Mongodb 介绍`  非关系型数据库 不需要提前设计表结构 最大的好处就是非常灵活 存储的是json数据    ` 12345678910111213141516171819202122232425262728293031323334// 1.加载 mongodb 模块var mongodb = require(&apos;mongodb&apos;);// 2.获取一个 Mong">
+<meta property="og:updated_time" content="2017-07-21T11:23:53.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模块化实现第三方内容">
-<meta name="twitter:description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
+<meta name="twitter:title" content="Mongodb">
+<meta name="twitter:description" content="2017.7.21  19:00Mongodb 介绍`  非关系型数据库 不需要提前设计表结构 最大的好处就是非常灵活 存储的是json数据    ` 12345678910111213141516171819202122232425262728293031323334// 1.加载 mongodb 模块var mongodb = require(&apos;mongodb&apos;);// 2.获取一个 Mong">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/29/模块化实现第三方内容/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/21/Mongodb/"/>
 
 
 
 
 
-  <title>模块化实现第三方内容 | Hexo</title>
+  <title>Mongodb | Hexo</title>
   
 
 
@@ -255,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/29/模块化实现第三方内容/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/21/Mongodb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模块化实现第三方内容</h1>
+          <h1 class="post-title" itemprop="name headline">Mongodb</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T21:50:52+08:00">
-                2017-06-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-21T18:48:05+08:00">
+                2017-07-21
               </time>
             
 
@@ -319,8 +319,43 @@
       
 
       
-        <h1 id="2017年6月29-22：00"><a href="#2017年6月29-22：00" class="headerlink" title="2017年6月29 22：00"></a>2017年6月29 22：00</h1><h2 id="使用require"><a href="#使用require" class="headerlink" title="使用require()"></a>使用require()</h2><p>使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用</p>
-<h2 id="通过shim属性配置实现第三方非模块的内容设置依赖项"><a href="#通过shim属性配置实现第三方非模块的内容设置依赖项" class="headerlink" title="通过shim属性配置实现第三方非模块的内容设置依赖项"></a>通过shim属性配置实现第三方非模块的内容设置依赖项</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="comment">//设置所有模块的路径查找，（能够共享的目录）</span></div><div class="line">    baseUrl:<span class="string">"/"</span>,</div><div class="line">    <span class="comment">// 为每个模块设置一个别名 （方便使用）</span></div><div class="line">    paths:&#123;</div><div class="line">        <span class="string">"jquery"</span>:<span class="string">"assets/jQuery/jquery.main"</span>,</div><div class="line">        <span class="string">"animate"</span>:<span class="string">"assets/animate/animate"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//通过shim属性配置实现第三方非模块的内容设置依赖项</span></div><div class="line">    shim:&#123;</div><div class="line">       <span class="comment">//属性名： 第三方非模块内容的别名</span></div><div class="line">       <span class="string">"animate"</span>:&#123;</div><div class="line">           <span class="comment">//dependences:属性可以给这个模块加载的依赖项</span></div><div class="line">           deps:[<span class="string">"jquery"</span>],</div><div class="line">           <span class="comment">//可以通过exprots属性，为当前的非模块化内容，设置类似于模块化返回值的内容，这里设置的是一个名字。require.js会根据这个名字去非模块化的内容中查找和其同名的全局变量。最终将这个变量的值作为模块的输出，返回值使用</span></div><div class="line">           exports：<span class="string">"animate"</span></div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">require</span>([<span class="string">"animate"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">animate</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(animate);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+        <h1 id="2017-7-21-19-00"><a href="#2017-7-21-19-00" class="headerlink" title="2017.7.21  19:00"></a>2017.7.21  19:00</h1><h2 id="Mongodb-介绍"><a href="#Mongodb-介绍" class="headerlink" title="Mongodb 介绍"></a>Mongodb 介绍</h2><p>`</p>
+<ul>
+<li>非关系型数据库<ul>
+<li>不需要提前设计表结构</li>
+<li>最大的好处就是非常灵活</li>
+<li>存储的是json数据</li>
+</ul>
+</li>
+</ul>
+<p>`</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 1.加载 mongodb 模块</span></div><div class="line"><span class="keyword">var</span> mongodb = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 2.获取一个 MongoClient 对象</span></div><div class="line"><span class="keyword">var</span> MongoClient = mongodb.MongoClient;</div><div class="line"></div><div class="line"><span class="comment">// 3.创建一个连接字符串 url</span></div><div class="line"><span class="keyword">var</span> connStr = <span class="string">'mongodb://192.168.39.68:27017/itcast'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 4.开始连接操作</span></div><div class="line"></div><div class="line">MongoClient.connect(connStr,<span class="function"><span class="keyword">function</span>(<span class="params">err,db</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="keyword">throw</span> err;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 4.1  插入一条记录</span></div><div class="line">    db.collection(<span class="string">'students'</span>).insert(&#123;<span class="string">'id'</span>: <span class="number">10008</span>,<span class="string">'name'</span>:<span class="string">'吴美人'</span>,<span class="string">'age'</span>:<span class="number">17</span>,<span class="string">'gender'</span>:<span class="string">'female'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,result</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            <span class="keyword">throw</span> err;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 4.2 查询数据</span></div><div class="line">    db.collection(<span class="string">'students'</span>.find(&#123;&#125;).toArry(<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            <span class="keyword">throw</span> err;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 4.3 关闭数据库连接，为服务器节省资源</span></div><div class="line">    db.close();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="基本操作命令"><a href="#基本操作命令" class="headerlink" title="基本操作命令"></a>基本操作命令</h2><ol>
+<li><p>show dbs<br><code>查看当前服务实例上所有的数据库</code></p>
+</li>
+<li><p>use 数据库名称</p>
+</li>
+</ol>
+<p><code>这个命令表示切换到指定的数据库
+    如果没有，也不会创建
+    如果已经有了，则表示切换到这个数据库对该数据库进行操作
+    连接到数据库之后，默认有一个变量叫做： db ，终端默认把db赋值给test</code> </p>
+<ol>
+<li><p>db<br><code>查看当前所处的数据库</code></p>
+</li>
+<li><p>db.集合名称.insert(数据文档)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.news.insert(&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">title</span>:<span class="string">'news title'</span>,<span class="attr">url</span>:<span class="string">'http://www.baidu.com'</span>&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>show collections<br><code>查看当前数据库中所有的集合</code></p>
+</li>
+<li><p>db.集合名称.find()<br><code>查询指定集合中所有的数据；可以通过db.集合名称.find().pretty()美化输出格式；默认是查询所有，可以通过：db.集合名称.find({查询条件}) 按条件查询集合中的数据</code></p>
+</li>
+<li><p>db.集合名称.update({更新条件}，{$set:{要更新的字段}})<br><code>更新指定集合数据</code></p>
+</li>
+<li><p>db.集合名称.remove({删除条件})<br><code>删除指定集合中的数据</code></p>
+</li>
+</ol>
+
       
     </div>
 
@@ -356,15 +391,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/20/express/" rel="next" title="express">
+                <i class="fa fa-chevron-left"></i> express
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/07/css3/" rel="prev" title="css3">
-                css3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017年6月29-22：00"><span class="nav-number">1.</span> <span class="nav-text">2017年6月29 22：00</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用require"><span class="nav-number">1.1.</span> <span class="nav-text">使用require()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过shim属性配置实现第三方非模块的内容设置依赖项"><span class="nav-number">1.2.</span> <span class="nav-text">通过shim属性配置实现第三方非模块的内容设置依赖项</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-7-21-19-00"><span class="nav-number">1.</span> <span class="nav-text">2017.7.21  19:00</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mongodb-介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Mongodb 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作命令"><span class="nav-number">1.2.</span> <span class="nav-text">基本操作命令</span></a></li></ol></li></ol></div>
             
 
           </div>

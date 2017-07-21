@@ -253,6 +253,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/21/Mongodb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/21/Mongodb/" itemprop="url">Mongodb</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-21T18:48:05+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2017-7-21-19-00"><a href="#2017-7-21-19-00" class="headerlink" title="2017.7.21  19:00"></a>2017.7.21  19:00</h1><h2 id="Mongodb-介绍"><a href="#Mongodb-介绍" class="headerlink" title="Mongodb 介绍"></a>Mongodb 介绍</h2><p>`</p>
+<ul>
+<li>非关系型数据库<ul>
+<li>不需要提前设计表结构</li>
+<li>最大的好处就是非常灵活</li>
+<li>存储的是json数据</li>
+</ul>
+</li>
+</ul>
+<p>`</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 1.加载 mongodb 模块</span></div><div class="line"><span class="keyword">var</span> mongodb = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 2.获取一个 MongoClient 对象</span></div><div class="line"><span class="keyword">var</span> MongoClient = mongodb.MongoClient;</div><div class="line"></div><div class="line"><span class="comment">// 3.创建一个连接字符串 url</span></div><div class="line"><span class="keyword">var</span> connStr = <span class="string">'mongodb://192.168.39.68:27017/itcast'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 4.开始连接操作</span></div><div class="line"></div><div class="line">MongoClient.connect(connStr,<span class="function"><span class="keyword">function</span>(<span class="params">err,db</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="keyword">throw</span> err;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 4.1  插入一条记录</span></div><div class="line">    db.collection(<span class="string">'students'</span>).insert(&#123;<span class="string">'id'</span>: <span class="number">10008</span>,<span class="string">'name'</span>:<span class="string">'吴美人'</span>,<span class="string">'age'</span>:<span class="number">17</span>,<span class="string">'gender'</span>:<span class="string">'female'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,result</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            <span class="keyword">throw</span> err;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 4.2 查询数据</span></div><div class="line">    db.collection(<span class="string">'students'</span>.find(&#123;&#125;).toArry(<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            <span class="keyword">throw</span> err;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 4.3 关闭数据库连接，为服务器节省资源</span></div><div class="line">    db.close();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="基本操作命令"><a href="#基本操作命令" class="headerlink" title="基本操作命令"></a>基本操作命令</h2><ol>
+<li><p>show dbs<br><code>查看当前服务实例上所有的数据库</code></p>
+</li>
+<li><p>use 数据库名称</p>
+</li>
+</ol>
+<p><code>这个命令表示切换到指定的数据库
+    如果没有，也不会创建
+    如果已经有了，则表示切换到这个数据库对该数据库进行操作
+    连接到数据库之后，默认有一个变量叫做： db ，终端默认把db赋值给test</code> </p>
+<ol>
+<li><p>db<br><code>查看当前所处的数据库</code></p>
+</li>
+<li><p>db.集合名称.insert(数据文档)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.news.insert(&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">title</span>:<span class="string">'news title'</span>,<span class="attr">url</span>:<span class="string">'http://www.baidu.com'</span>&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>show collections<br><code>查看当前数据库中所有的集合</code></p>
+</li>
+<li><p>db.集合名称.find()<br><code>查询指定集合中所有的数据；可以通过db.集合名称.find().pretty()美化输出格式；默认是查询所有，可以通过：db.集合名称.find({查询条件}) 按条件查询集合中的数据</code></p>
+</li>
+<li><p>db.集合名称.update({更新条件}，{$set:{要更新的字段}})<br><code>更新指定集合数据</code></p>
+</li>
+<li><p>db.集合名称.remove({删除条件})<br><code>删除指定集合中的数据</code></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/express/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1681,7 +1828,7 @@ span：：befor{
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
