@@ -1,0 +1,717 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="2017.7.24 10:00ES6 let let 的核心是加入块级作用域，{} 就是一个快 变量声明，必须先声明后使用，不允许重复声明；  12345let foo = &apos;bar&apos;;if(true)&amp;#123;    let foo = &apos;bal&apos;;&amp;#125;console.log(foo);  // bar const 声明常量，一旦声明，不可改变,否则报错； 普通数据类型不能修改，引用类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6">
+<meta property="og:url" content="http://yoursite.com/2017/07/24/ES6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2017.7.24 10:00ES6 let let 的核心是加入块级作用域，{} 就是一个快 变量声明，必须先声明后使用，不允许重复声明；  12345let foo = &apos;bar&apos;;if(true)&amp;#123;    let foo = &apos;bal&apos;;&amp;#125;console.log(foo);  // bar const 声明常量，一旦声明，不可改变,否则报错； 普通数据类型不能修改，引用类">
+<meta property="og:updated_time" content="2017-07-24T07:22:18.602Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6">
+<meta name="twitter:description" content="2017.7.24 10:00ES6 let let 的核心是加入块级作用域，{} 就是一个快 变量声明，必须先声明后使用，不允许重复声明；  12345let foo = &apos;bar&apos;;if(true)&amp;#123;    let foo = &apos;bal&apos;;&amp;#125;console.log(foo);  // bar const 声明常量，一旦声明，不可改变,否则报错； 普通数据类型不能修改，引用类">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/24/ES6/"/>
+
+
+
+
+
+  <title>ES6 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/ES6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ES6</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T10:03:45+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="2017-7-24-10-00"><a href="#2017-7-24-10-00" class="headerlink" title="2017.7.24 10:00"></a>2017.7.24 10:00</h1><p><code>ES6</code></p>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><ol>
+<li>let 的核心是加入块级作用域，{} 就是一个快</li>
+<li>变量声明，必须先声明后使用，不允许重复声明；</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> foo = <span class="string">'bar'</span>;</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="keyword">let</span> foo = <span class="string">'bal'</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(foo);  <span class="comment">// bar</span></div></pre></td></tr></table></figure>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol>
+<li>声明常量，一旦声明，不可改变,否则报错；</li>
+<li>普通数据类型不能修改，引用类型的数据可以修改属性值</li>
+<li>声明时必须赋值，也是块级作用域，没有变量提升，不可重复声明；</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> foo = <span class="string">'bar'</span>;</div><div class="line"><span class="built_in">console</span>.log(foo) <span class="comment">// bar</span></div><div class="line"></div><div class="line">foo = <span class="string">'baz'</span>  <span class="comment">// 报错  TypeError：Assignment to constant variable;</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> obj = &#123;</div><div class="line">    <span class="attr">foo</span>:<span class="string">'bar'</span>;</div><div class="line">&#125;</div><div class="line">obj = <span class="number">123</span> <span class="comment">// 报错  这是赋值</span></div><div class="line">obj.foo = <span class="string">'baz'</span> <span class="comment">// 修改对象的属性值</span></div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>凡是变量使用 let</li>
+<li>凡是不变的都是使用 const</li>
+</ol>
+<ul>
+<li>如果你定义的成员，一次都没有改变过，使用 const</li>
+<li>如果你定义的成员，最少做了一次修改，则一定是let</li>
+<li>所有相对来说，const使用要多一些；</li>
+<li>最佳使用建议：全部 const，报错时才改为let</li>
+</ul>
+<h2 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h2><p><code>数组的解构赋值是按照数据的顺序来解构的</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// ‘模式匹配’</span></div><div class="line"><span class="keyword">const</span> arr = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>]</div><div class="line"><span class="keyword">let</span> [num1,num2,num3] = arr</div><div class="line"><span class="built_in">console</span>.log(num1,num2,num3,num4) <span class="comment">// 10,20,30,undefined;</span></div><div class="line"></div><div class="line"><span class="keyword">let</span>[x,,y] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line">x <span class="comment">// 1;</span></div><div class="line">y <span class="comment">// 3;</span></div><div class="line"> </div><div class="line"><span class="keyword">let</span>[head,...tail] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">head <span class="comment">// 1;</span></div><div class="line">tail <span class="comment">// [2,3,4];</span></div></pre></td></tr></table></figure>
+<h2 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h2><p><code>对象的解构赋值 是按照对象的 key 来解构的；当解构不成功的时候，默认赋值undefined</code></p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> user = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">'Jack'</span>,</div><div class="line">    <span class="attr">gender</span>:<span class="string">'男'</span>,</div><div class="line">    <span class="attr">age</span>:<span class="number">18</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> &#123;name,age,gender &#125; = user;</div><div class="line"><span class="built_in">console</span>.log(name,age,gender) <span class="comment">// Jack 18 男</span></div></pre></td></tr></table></figure>
+<h3 id="运用场景"><a href="#运用场景" class="headerlink" title="运用场景"></a>运用场景</h3> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">// 加载模块</span></div><div class="line">   <span class="comment">//  解构赋值，只拿readFile，writeFile 其他的不要 (灵活性)；</span></div><div class="line"><span class="keyword">const</span> &#123; readFile ,writeFile&#125; = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div></pre></td></tr></table></figure>
+<p><code>函数参数也可以使用解构赋值</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">[x,y]</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x + y ;</div><div class="line">&#125;</div><div class="line">add([<span class="number">1</span>,<span class="number">2</span>]) <span class="comment">// 3</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> (<span class="params">&#123;name,age&#125;</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(name,age)  <span class="comment">// 张三 18</span></div><div class="line">&#125;</div><div class="line">f(&#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">'张三'</span>,</div><div class="line">    <span class="attr">age</span>:<span class="number">18</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">[[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]].map([a,b] =&gt; a + b); <span class="comment">// [3,7]</span></div><div class="line"> <span class="keyword">const</span> arr = [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]];</div><div class="line"> <span class="keyword">const</span> newArr = arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">[a,b]</span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span>  a + b</div><div class="line"> &#125;)</div><div class="line"><span class="built_in">console</span>.log(newArr);</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 默认值解构</span></div><div class="line"><span class="keyword">const</span>&#123; name ,age = <span class="number">18</span>&#125; = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">'张三'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(name,age) <span class="comment">// 张三 18</span></div></pre></td></tr></table></figure>
+<h3 id="运用场景-1"><a href="#运用场景-1" class="headerlink" title="运用场景"></a>运用场景</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">&#123;</span></span></div><div class="line">    url,</div><div class="line">    type = get,</div><div class="line">    async = true</div><div class="line">&#125;) &#123;</div><div class="line">    <span class="built_in">console</span>.log(url,type,<span class="keyword">async</span>) <span class="comment">// /aa get true</span></div><div class="line">&#125;</div><div class="line">ajax(&#123;</div><div class="line">    <span class="attr">url</span>:<span class="string">'/aa'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="字符串-常用"><a href="#字符串-常用" class="headerlink" title="字符串 常用"></a>字符串 常用</h2><ol>
+<li><p>string.include(‘he’)  // 校验指定字符串是否包含</p>
+</li>
+<li><p>string.startWith(‘h’) // 是否是以指定字符开头</p>
+</li>
+<li><p>string.endWith(‘h’)  </p>
+</li>
+<li><p>const str = <code>自动换行 空格也ok</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> list = [</div><div class="line">    &#123; <span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">'a'</span>&#125;,</div><div class="line">    &#123; <span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">'a'</span>&#125;,        </div><div class="line">    &#123; <span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">'a'</span>&#125;</div><div class="line">]</div><div class="line"></div><div class="line"><span class="keyword">var</span> tbody = <span class="string">''</span></div><div class="line">list.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">    tbody +=<span class="string">`</span></div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;td&gt;<span class="subst">$&#123;item.id&#125;</span>&lt;/td&gt;</div><div class="line">            &lt;td&gt;<span class="subst">$&#123;item.name&#125;</span>&lt;/td&gt;</div><div class="line">            &lt;td&gt;<span class="subst">$&#123;item.age&#125;</span>&lt;/td&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">    `</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 使用建议：</span></div><div class="line"><span class="comment">// 当需要拼接字符串的时候使用模板字符串，哪怕只有一次</span></div><div class="line"><span class="comment">//如果既没有换行也没有拼接还是建议使用单引号</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">'Jack'</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">`hello<span class="subst">$&#123;name&#125;</span>world`</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="函数默认值"><a href="#函数默认值" class="headerlink" title="函数默认值"></a>函数默认值</h2><ol>
+<li>除了解构赋值的默认值</li>
+<li>函数参数也支持默认值</li>
+<li>一般情况下，如果函数需要默认值，也是函数的尾参数</li>
+<li>当你的函数只需要一个参数具有默认值的时候，则可以把该参数定位为尾参数</li>
+<li>当你的函数需要多个默认值的时候，则可以使用解构赋值的方式</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> (<span class="params">name,age = <span class="number">10</span></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(name,age) <span class="comment">// aaa 18</span></div><div class="line">&#125;</div><div class="line">f(<span class="string">'aaa'</span>)</div></pre></td></tr></table></figure>
+<h2 id="rest"><a href="#rest" class="headerlink" title="rest"></a>rest</h2><p><code>rest 表示剩余的意思，是将用户的传递过来的剩余参数解析放到一个数组中，如果没有剩余参数，...args也是一个空数组 ；rest 参数必须是最后一个，后面不能继续跟参数了</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">...args</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> count = <span class="number">0</span></div><div class="line">    args.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">        count += count;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="箭头函数-gose-to"><a href="#箭头函数-gose-to" class="headerlink" title="箭头函数 gose to"></a>箭头函数 gose to</h2><p><code>语法： 1.一个参数可以省略（）； 2.没有参数不能省略（）；3.箭头函数内部不要使用arguments（伪数组）， ...args可代替(数组)； 4.</code></p>
+<ol>
+<li>箭头函数不能用在函数声明</li>
+<li>只有函数表达式和匿名函数可以使用箭头函数</li>
+<li>建议：所有需要匿名函数的地方都使用箭头函数，因为函数表达式用的很少，so 使用最多的就是匿名函数</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span> x</div><div class="line"> &#125; </div><div class="line"> <span class="keyword">var</span> f = <span class="function"><span class="params">x</span> =&gt;</span> x;</div><div class="line"> <span class="keyword">var</span> f = <span class="function"><span class="params">x</span> =&gt;</span> &#123;</div><div class="line">     <span class="comment">//在大括号里必须写return</span></div><div class="line">     <span class="keyword">return</span> x</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">     <span class="built_in">console</span>.log(<span class="string">"aasd"</span>)</div><div class="line"> &#125;,<span class="number">1000</span>)</div><div class="line"></div><div class="line"> <span class="keyword">var</span> arr = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">21</span>]</div><div class="line"> arr.forEach(<span class="function"><span class="params">n</span> =&gt;</span> <span class="built_in">console</span>.log(n)) <span class="comment">// 10,20, 21</span></div><div class="line"> <span class="comment">// console.log(arr.forEach(function(n)&#123;</span></div><div class="line"> <span class="comment">//     return n</span></div><div class="line"><span class="comment">// &#125;))</span></div></pre></td></tr></table></figure>
+<p><code>任何箭头函数都会默认自动的 .bind(this); 手动 bind 无效</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age)</div><div class="line">&#125;,<span class="number">1000</span>)</div><div class="line">      || </div><div class="line">setTimeout(funciton()&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age)</div><div class="line">&#125;.bind(<span class="keyword">this</span>),<span class="number">1000</span>)</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/21/Mongodb/" rel="next" title="Mongodb">
+                <i class="fa fa-chevron-left"></i> Mongodb
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/30/Angular.$http/" rel="prev" title="Angular（）">
+                Angular（） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-7-24-10-00"><span class="nav-number">1.</span> <span class="nav-text">2017.7.24 10:00</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#let"><span class="nav-number">1.1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const"><span class="nav-number">1.2.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.2.1.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的解构赋值"><span class="nav-number">1.3.</span> <span class="nav-text">数组的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的解构赋值"><span class="nav-number">1.4.</span> <span class="nav-text">对象的解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运用场景"><span class="nav-number">1.4.1.</span> <span class="nav-text">运用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用场景-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">运用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串-常用"><span class="nav-number">1.5.</span> <span class="nav-text">字符串 常用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数默认值"><span class="nav-number">1.6.</span> <span class="nav-text">函数默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rest"><span class="nav-number">1.7.</span> <span class="nav-text">rest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数-gose-to"><span class="nav-number">1.8.</span> <span class="nav-text">箭头函数 gose to</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
