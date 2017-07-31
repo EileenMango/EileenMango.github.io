@@ -253,6 +253,144 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/30/Browser相关属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/30/Browser相关属性/" itemprop="url">Browser相关属性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T16:59:12+08:00">
+                2017-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2017-7-30"><a href="#2017-7-30" class="headerlink" title="2017.7.30"></a>2017.7.30</h1><h1 id="BOM-自带方法"><a href="#BOM-自带方法" class="headerlink" title="BOM 自带方法"></a>BOM 自带方法</h1><ol>
+<li>open() ; 打开一个新窗口 （有参数）</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 只有一个参数；打开一个新的页面，参数作为地址</div><div class="line">2. 有两个参数；页面跳转（当前页面或者新页面）</div><div class="line">window.open('http://taobao.com','_self'/'_blank') 本页跳转/新页面</div></pre></td></tr></table></figure>
+<ol>
+<li>close() ; 关闭页面 （无参数）</li>
+</ol>
+<h1 id="window-的三个属性-location-navigator-history"><a href="#window-的三个属性-location-navigator-history" class="headerlink" title="window 的三个属性 location navigator history"></a>window 的三个属性 location navigator history</h1><h2 id="Location-地址的意思-（属性和方法）"><a href="#Location-地址的意思-（属性和方法）" class="headerlink" title="Location : 地址的意思 （属性和方法）"></a>Location : 地址的意思 （属性和方法）</h2><h3 id="属性-（和服务器有关）"><a href="#属性-（和服务器有关）" class="headerlink" title="属性 （和服务器有关）"></a>属性 （和服务器有关）</h3><ul>
+<li>location.href ; 地址，页面</li>
+<li>location.hash ; 返回url中#后面的内容，包含#</li>
+<li>location.host ; 主机名，包括端口</li>
+<li>location.hostname ; 主机名</li>
+<li>window.location.pathname ; url中的路径部分</li>
+<li>window.location.protocal ; 协议 一般是http，https</li>
+<li>window.location.search ; 查询字符串</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>location.assign  改变浏览的地址，就是页面跳转</li>
+<li>location.href </li>
+<li>location.replace() 页面跳转 不会有历史记录</li>
+<li>location.reload（） 页面刷新</li>
+</ul>
+<h2 id="navigatot-与浏览器，系统有关-（属性）"><a href="#navigatot-与浏览器，系统有关-（属性）" class="headerlink" title="navigatot 与浏览器，系统有关 （属性）"></a>navigatot 与浏览器，系统有关 （属性）</h2><ol>
+<li>userAgent (浏览器)</li>
+<li>platform (浏览器支持的系统，win/mac/linux)</li>
+</ol>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 判断浏览器类型</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myBrowser</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 获取浏览器的 userAgent 字符串</span></div><div class="line">    <span class="keyword">var</span> userAgent = navigator.userAgent; </div><div class="line">    <span class="keyword">var</span> isOpera = userAgent.indexOf(<span class="string">'Opera'</span>) &gt; <span class="number">-1</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (isOpera) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'Opera'</span></div><div class="line">    &#125;; <span class="comment">// 判断是否是 Opera 浏览器</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (userAgent.indexOf(<span class="string">'Friefox'</span>) &gt; <span class="number">-1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'FF'</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ( userAgent.indexOf(<span class="string">'Safari'</span>) &gt; <span class="number">-1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'Safari'</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ( userAgent.indexOf(<span class="string">'compatible'</span>) &gt; <span class="number">-1</span> &amp;&amp; userAgent.indexOf(<span class="string">'MSIE'</span>) &gt; <span class="number">-1</span> &amp;&amp; !isOpera) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'IE'</span></div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> mb = myBrowser();</div><div class="line"><span class="keyword">if</span> (<span class="string">'IE'</span> == mb) &#123;</div><div class="line">    alert (<span class="string">'我是 IE'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (<span class="string">'FF'</span>== mb ) &#123;</div><div class="line">    alert (<span class="string">'我是 Firefox'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (<span class="string">'Chrome'</span> == mb ) &#123;</div><div class="line">    alert (<span class="string">'我是 Opera'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span>  (<span class="string">'Safari'</span> == mb ) &#123;</div><div class="line">    alert (<span class="string">'我是 Safari'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/30/Angular.$http/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1573,167 +1711,6 @@ span：：befor{
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/08/angular/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/08/angular/" itemprop="url">angular</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-08T16:06:46+08:00">
-                2017-07-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="2017年7月8日"><a href="#2017年7月8日" class="headerlink" title="2017年7月8日"></a>2017年7月8日</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><code>每一个控制器都拥有$scope, 这个$scope可以看做是一个作用域，当前控制器中所有绑定的数据内容都会来$scope中进行查找</code></p>
-<p>在模块控制的范围内，有一个全局作用域，$rootScope</p>
-<p>控制器之间又可以进行嵌套，嵌套之后，作用域之间就形成了继承关系，其原理就是原型继承</p>
-<p>继承关系指的就是：绑定数据在查找的时候，会在当前控制器中进行查找，如果找到了就直接使用，如果找不到就会去外层控制器的作用域中进行查找，直到找到$rootScope为止</p>
-<p>$rootScope可以被所有的控制器操作，所有很容易出现全局污染的情况，所有应该避免进行类似的操作</p>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h3><p>angular.module(“模块名称”,[“依赖项”]);</p>
-<h3 id="获取模块"><a href="#获取模块" class="headerlink" title="获取模块"></a>获取模块</h3><p>angular.module(“模块名称”);</p>
-<h3 id="模块注意事项"><a href="#模块注意事项" class="headerlink" title="模块注意事项"></a>模块注意事项</h3><p>angular推荐一个页面中只使用一个ng-app指定一个模块</p>
-<p>如果存在多个ng-app指令，angular只会自动启动第一个模块！</p>
-<p>如果要启动多个模块，需要手动启动<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.bootstrap(模块要控制的dom元素,[<span class="string">"模块名称"</span>]);</div></pre></td></tr></table></figure></p>
-<p>** 模块不能嵌套</p>
-<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>一种架构模式，将应用程序代码根据功能划分为三部分</p>
-<p><code>Model：数据内容，负责所有的数据操作</code></p>
-<p><code>View：视图内容，负责所有的数据展示工作以及用户交互操作</code></p>
-<p><code>Controller：控制器内容，负责处理所有的业务逻辑（在视图和数据之间搭建一个桥梁）</code></p>
-<h3 id="MVP-MVVM-MVW-MV"><a href="#MVP-MVVM-MVW-MV" class="headerlink" title="MVP MVVM MVW MV*"></a>MVP MVVM MVW MV*</h3><h2 id="jqlite"><a href="#jqlite" class="headerlink" title="jqlite"></a>jqlite</h2><p><code>jqlite是angular内置的类似于jQuery的东西,但是他不具备jQuery大部分的功能，尤其是没有提供选择器</code></p>
-<p>angular.element能够获取到jqlite的对象，也可以引入jQuery之后，用来获取jQuery的$;</p>
-<p>angular不推荐进行dom操作，也不推荐使用别人家的东西</p>
-<h2 id="watch"><a href="#watch" class="headerlink" title="$watch"></a>$watch</h2><p>$watch可以用来监视数据的变化</p>
-<p>只能监视$scope中的内容！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.$watch(<span class="string">"数据名称"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">newValue,oldValue</span>)</span>&#123;</div><div class="line"> <span class="comment">//这个函数会在数据发生变化的时候被调用</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>如果要监视一个对象，那么需要传入第三个参数，deepwatch，是一个布尔值，设置为true的时候，会在对象内部的属性发生变化的时候也监视到变化，但是他默认值是false！！</p>
-<h2 id="controller的创建方式"><a href="#controller的创建方式" class="headerlink" title="controller的创建方式"></a>controller的创建方式</h2><ol>
-<li>推断式<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">模块对象.controller(<span class="string">"控制器名称"</span>，<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">    <span class="comment">//$scope这个形参名是定死的，不能随意更改，更改之后会找不到该内容，报错 报错！</span></div><div class="line"></div><div class="line">    <span class="comment">//这种写法不推荐，因为在代码压缩的时候，$scope会被改变名称！</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>2.依赖注入式<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">模块对象.controller(<span class="string">"控制器名称"</span>,[<span class="string">"$scope"</span>,<span class="string">"$log"</span>...,<span class="function"><span class="keyword">function</span>(<span class="params">scope.log...</span>)</span>&#123;&#125;]);</div></pre></td></tr></table></figure></p>
-<p>3.面向对象的方式<br>（可以将数据绑定到控制器的实例上）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">模块对象.controller(<span class="string">"控制器名称"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//this指向的就是控制器的一个实例，</span></div><div class="line">  <span class="comment">//下面的操作就是将数据绑定到了实例对象上</span></div><div class="line">  <span class="keyword">this</span>.数据 = <span class="string">"neirong"</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>在视图中需要通过如下的方式进行使用<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 这里的item其实就是控制器实例--&gt;</span></div><div class="line"><span class="comment">&lt;!-- 这句话就相当于执行了 var item = new 控制器（）--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span> = <span class="string">"控制器名称 as item"</span>&gt;</span></div><div class="line">&#123;&#123;item.数据&#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>DI dependence injection</p>
-<p>将需要使用的内容注入到指定的位置</p>
-<p>优势： </p>
-<pre><code>1.参数的顺序不需要指定了，参数也不需要将所有的内容都传递进来了
-2.参数名称也不需要定死了
-</code></pre><p>angular当中的依赖注入的实现<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ctrl</span>(<span class="params"></span>)</span></div></pre></td></tr></table></figure></p>
-<h3 id="推断式创建控制器的原理"><a href="#推断式创建控制器的原理" class="headerlink" title="推断式创建控制器的原理"></a>推断式创建控制器的原理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ctrl</span>(<span class="params">name,params</span>)</span>&#123;</div><div class="line">    <span class="comment">//系统中包含的所有的功能</span></div><div class="line">    <span class="keyword">var</span> features = &#123;</div><div class="line">        <span class="string">"$scpoe"</span>:&#123;</div><div class="line">            <span class="attr">name</span>:<span class="string">"张三"</span></div><div class="line">        &#125;,</div><div class="line">        <span class="string">"$log"</span>:&#123;</div><div class="line">            <span class="attr">log</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">            <span class="attr">warn</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="string">"$rootScope"</span>:&#123;&#125;,</div><div class="line">        <span class="string">"$window"</span>:<span class="built_in">window</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//获取到回调函数</span></div><div class="line">    <span class="keyword">var</span> callback = params[params.length<span class="number">-1</span>];</div><div class="line">    <span class="comment">//在调用这个函数的时候，需要给用户传递的参数是根据用户告诉我们的内容，传递</span></div><div class="line">    </div><div class="line">    <span class="comment">//声明一个数据，准备存放用户需要的所有的内容</span></div><div class="line">    <span class="keyword">var</span> args = [];</div><div class="line"></div><div class="line">    <span class="comment">//遍历用户所需要的内容</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;= params.length<span class="number">-2</span>;i++)&#123;</div><div class="line">        <span class="comment">//遍历所有的功能，找到和用户所需要的功能对应的内容</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k  <span class="keyword">in</span> features)&#123;</div><div class="line">            <span class="keyword">if</span>(k == params[i])&#123;</div><div class="line">                args.push(features[k]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//将用户所需要的所有的功能，传入callback进行调用</span></div><div class="line">    callback.apply(<span class="literal">null</span>,args);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="ng-class"><a href="#ng-class" class="headerlink" title="ng-class"></a>ng-class</h2><p><code>可以用来绑定类样式</code></p>
-<p>1.ng-class = “数据”   数据中存储的可以直接是类名</p>
-<p>2.ng-class = “数据”   数据中存储的是一个对象，对象中的属性名表示类名，属性值表示该类名有没有在元素中出现，是一个布尔值！<br>ng-class=”{red:true,green:false}”</p>
-<h2 id="ng-repeat"><a href="#ng-repeat" class="headerlink" title="ng-repeat"></a>ng-repeat</h2><p><code>用来遍历数据，生成html</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ng-repeat</span> = <span class="string">"item in list"</span>&gt;</span>&#123;&#123;item&#125;&#125; <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ng-repeat</span> = <span class="string">"item in list"</span>&gt;</span>&#123;&#123;item&#125;&#125; &#123;&#123;$index&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ng-repeat</span> = <span class="string">"(key,value) in list"</span>&gt;</span>&#123;&#123;key&#125;&#125; &#123;&#123;value&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">ng-repeat不仅可以遍历数组，也可以遍历对象</div></pre></td></tr></table></figure>
-<p>ng-repeat比那里的数组中的内容是不允许重复的，如果想要重复的内容，需要加上track by<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ng-repeat</span> = <span class="string">"item in list track by 一个唯一的值"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">唯一的值一般使用的就是$index</div></pre></td></tr></table></figure></p>
-<h2 id="ng-cloak"><a href="#ng-cloak" class="headerlink" title="ng-cloak"></a>ng-cloak</h2><p><code>原理：在angular加载完毕之后，所有ng-cloak相关的内容全都会被移</code></p>
-<ol>
-<li><p>声明ng-cloak的类样式，或者用属性选择器，加上display：none</p>
-</li>
-<li><p>在元素中使用class=”ng-cloak”,活在加上ng-cloak属性 将元素隐藏</p>
-</li>
-<li><p>在angular加载完毕之后，ng-cloak的类样式和ng-cloak属性都将被移除，元素显示！</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1783,7 +1760,7 @@ span：：befor{
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
