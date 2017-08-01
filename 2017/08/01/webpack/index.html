@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
+<meta name="description" content="2017.8.1 webpack 使用EcmaScript 模块规范  webpack 支持 AMD、CommonJS、EcmaScript 6 Module 等模块规范。也就是你会什么模块规范你就用哪种。 但是目前更推荐使用 EcmaScript 6 Module 模块规范，因为这是 EcmaScript 官方标准。 目前还有任何平台支持 EcmaScript 6 Module。 监视文件变化自">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模块化实现第三方内容">
-<meta property="og:url" content="http://yoursite.com/2017/06/29/模块化实现第三方内容/index.html">
+<meta property="og:title" content="webpack">
+<meta property="og:url" content="http://yoursite.com/2017/08/01/webpack/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
-<meta property="og:updated_time" content="2017-06-29T14:17:49.719Z">
+<meta property="og:description" content="2017.8.1 webpack 使用EcmaScript 模块规范  webpack 支持 AMD、CommonJS、EcmaScript 6 Module 等模块规范。也就是你会什么模块规范你就用哪种。 但是目前更推荐使用 EcmaScript 6 Module 模块规范，因为这是 EcmaScript 官方标准。 目前还有任何平台支持 EcmaScript 6 Module。 监视文件变化自">
+<meta property="og:updated_time" content="2017-08-01T11:30:21.568Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模块化实现第三方内容">
-<meta name="twitter:description" content="2017年6月29 22：00使用require()使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用 通过shim属性配置实现第三方非模块的内容设置依赖项1234567891011121314151617181920212223require.config(&amp;#123;    //设置所有模块的路">
+<meta name="twitter:title" content="webpack">
+<meta name="twitter:description" content="2017.8.1 webpack 使用EcmaScript 模块规范  webpack 支持 AMD、CommonJS、EcmaScript 6 Module 等模块规范。也就是你会什么模块规范你就用哪种。 但是目前更推荐使用 EcmaScript 6 Module 模块规范，因为这是 EcmaScript 官方标准。 目前还有任何平台支持 EcmaScript 6 Module。 监视文件变化自">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/29/模块化实现第三方内容/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/01/webpack/"/>
 
 
 
 
 
-  <title>模块化实现第三方内容 | Hexo</title>
+  <title>webpack | Hexo</title>
   
 
 
@@ -255,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/29/模块化实现第三方内容/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/01/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模块化实现第三方内容</h1>
+          <h1 class="post-title" itemprop="name headline">webpack</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posté le</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T21:50:52+08:00">
-                2017-06-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-01T19:19:04+08:00">
+                2017-08-01
               </time>
             
 
@@ -319,8 +319,15 @@
       
 
       
-        <h1 id="2017年6月29-22：00"><a href="#2017年6月29-22：00" class="headerlink" title="2017年6月29 22：00"></a>2017年6月29 22：00</h1><h2 id="使用require"><a href="#使用require" class="headerlink" title="使用require()"></a>使用require()</h2><p>使用require函数直接进行请求加载，但只能将这个第三方模块中的内容执行一遍，并不能帮助我们实现依赖项的加载，也不能将模块的产出内容交给回调函数使用</p>
-<h2 id="通过shim属性配置实现第三方非模块的内容设置依赖项"><a href="#通过shim属性配置实现第三方非模块的内容设置依赖项" class="headerlink" title="通过shim属性配置实现第三方非模块的内容设置依赖项"></a>通过shim属性配置实现第三方非模块的内容设置依赖项</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="comment">//设置所有模块的路径查找，（能够共享的目录）</span></div><div class="line">    baseUrl:<span class="string">"/"</span>,</div><div class="line">    <span class="comment">// 为每个模块设置一个别名 （方便使用）</span></div><div class="line">    paths:&#123;</div><div class="line">        <span class="string">"jquery"</span>:<span class="string">"assets/jQuery/jquery.main"</span>,</div><div class="line">        <span class="string">"animate"</span>:<span class="string">"assets/animate/animate"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//通过shim属性配置实现第三方非模块的内容设置依赖项</span></div><div class="line">    shim:&#123;</div><div class="line">       <span class="comment">//属性名： 第三方非模块内容的别名</span></div><div class="line">       <span class="string">"animate"</span>:&#123;</div><div class="line">           <span class="comment">//dependences:属性可以给这个模块加载的依赖项</span></div><div class="line">           deps:[<span class="string">"jquery"</span>],</div><div class="line">           <span class="comment">//可以通过exprots属性，为当前的非模块化内容，设置类似于模块化返回值的内容，这里设置的是一个名字。require.js会根据这个名字去非模块化的内容中查找和其同名的全局变量。最终将这个变量的值作为模块的输出，返回值使用</span></div><div class="line">           exports：<span class="string">"animate"</span></div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">require</span>([<span class="string">"animate"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">animate</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(animate);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+        <h1 id="2017-8-1"><a href="#2017-8-1" class="headerlink" title="2017.8.1"></a>2017.8.1</h1><blockquote>
+<p>webpack 使用EcmaScript 模块规范</p>
+</blockquote>
+<p>webpack 支持 AMD、CommonJS、EcmaScript 6 Module 等模块规范。<br>也就是你会什么模块规范你就用哪种。</p>
+<p>但是目前更推荐使用 EcmaScript 6 Module 模块规范，因为这是 EcmaScript 官方标准。</p>
+<p>目前还有任何平台支持 EcmaScript 6 Module。</p>
+<p>监视文件变化自动打包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack --watch src/main.js dist/bundle.js</div></pre></td></tr></table></figure>
+<h2 id="EcmaScript-6-Module"><a href="#EcmaScript-6-Module" class="headerlink" title="EcmaScript 6 Module"></a>EcmaScript 6 Module</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 加载的方式：</span></div><div class="line"><span class="comment">//  import 变量名称 from '模块路径'  按需只加载 export default 的成员</span></div><div class="line"><span class="comment">//  import &#123; 模块导出接口成员名, 模块导出接口成员名 as 别名 &#125; from '模块路径' 按需加载非 default 的成员</span></div><div class="line"><span class="comment">//  import * as 别名 from '模块路径' 一次性加载所有，export default 会提供一个 default 成员，其他都是键名对应值</span></div><div class="line"></div><div class="line"><span class="comment">// 导出的方式：</span></div><div class="line"><span class="comment">// export</span></div><div class="line"><span class="comment">//  注意：export 必须有模块内部变量的引用</span></div><div class="line"><span class="comment">// export default 只能有一次，否则报错</span></div><div class="line"></div><div class="line"><span class="comment">// 三种导出的方式：</span></div><div class="line"><span class="comment">//  export let|var|const|function 成员名 = 值 支持解构赋值的方式按需加载</span></div><div class="line"><span class="comment">//  export &#123; 内部成员名 [,内部成员名] &#125; 一次性统一导出内部成员</span></div><div class="line"><span class="comment">//  export &#123; 内部成员名 [,内部成员名] &#125; 不会覆盖任何其他成员</span></div><div class="line"><span class="comment">//  export default 任意成员（有名无名都行），只能出现一次</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -356,15 +363,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/30/Browser相关属性/" rel="next" title="Browser相关属性">
+                <i class="fa fa-chevron-left"></i> Browser相关属性
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/07/css3/" rel="prev" title="css3">
-                css3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,7 +482,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017年6月29-22：00"><span class="nav-number">1.</span> <span class="nav-text">2017年6月29 22：00</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用require"><span class="nav-number">1.1.</span> <span class="nav-text">使用require()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过shim属性配置实现第三方非模块的内容设置依赖项"><span class="nav-number">1.2.</span> <span class="nav-text">通过shim属性配置实现第三方非模块的内容设置依赖项</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-8-1"><span class="nav-number">1.</span> <span class="nav-text">2017.8.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EcmaScript-6-Module"><span class="nav-number">1.1.</span> <span class="nav-text">EcmaScript 6 Module</span></a></li></ol></li></ol></div>
             
 
           </div>
